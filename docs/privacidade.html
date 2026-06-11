@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidade — Laudos & Contratos Imobiliários</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0a1628;
+      --navy-light: #111f38;
+      --navy-muted: #1a2d4f;
+      --gold: #c9a84c;
+      --gold-light: #e0c16c;
+      --gold-dark: #a88a3a;
+      --white: #ffffff;
+      --cream: #f7f5f0;
+      --gray: #8a94a6;
+      --gray-light: #e2e6ed;
+      --success: #22c55e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(10, 22, 40, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy) !important;
+      padding: 0.55rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,168,76,0.35);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      position: relative;
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+      background: var(--navy);
+      overflow: hidden;
+      padding-top: 72px;
+    }
+
+    .page-header-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 60%);
+    }
+
+    .page-header-grid {
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .page-header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      width: 100%;
+    }
+
+    .page-header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.25);
+      color: var(--gold-light);
+      padding: 0.45rem 1rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .page-header p {
+      font-size: 1.05rem;
+      color: var(--gray);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    /* ===== CONTENT ===== */
+    .section { padding: 5rem 0; }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .legal-content {
+      background: var(--white);
+    }
+
+    .legal-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 2.5rem 0 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--gray-light);
+    }
+
+    .legal-content h2:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .legal-content h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy-muted);
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    .legal-content p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .legal-content ul {
+      margin-left: 1.25rem;
+      margin-bottom: 1.25rem;
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .legal-content li { margin-bottom: 0.5rem; }
+
+    .legal-content a { color: var(--gold-dark); text-decoration: none; font-weight: 500; }
+    .legal-content a:hover { text-decoration: underline; }
+
+    .update-note {
+      background: var(--cream);
+      border: 1px solid var(--gray-light);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .update-note-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .update-note p {
+      font-size: 0.9rem;
+      color: var(--navy-muted);
+      margin: 0;
+    }
+
+    .privacy-box {
+      background: linear-gradient(135deg, rgba(201,168,76,0.06), rgba(201,168,76,0.02));
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .privacy-box h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+
+    .privacy-box p {
+      font-size: 0.9rem;
+      color: var(--navy-muted);
+      margin: 0;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--navy);
+      padding: 3rem 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .footer-brand span { color: var(--gold); }
+
+    .footer-copy {
+      color: var(--gray);
+      font-size: 0.85rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .footer-content { flex-direction: column; text-align: center; }
+      .page-header { min-height: auto; padding: 6rem 0 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Laudos <span>&</span> Contratos</a>
+      <ul class="nav-links">
+        <li><a href="index.html#combos">Combos</a></li>
+        <li><a href="index.html#modelos">Modelos</a></li>
+        <li><a href="index.html#como-funciona">Como Funciona</a></li>
+        <li><a href="index.html#depoimentos">Depoimentos</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="index.html#combos" class="nav-cta">Comprar Agora</a></li>
+      </ul>
+      <button class="mobile-toggle">☰</button>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-bg"></div>
+    <div class="page-header-grid"></div>
+    <div class="page-header-content">
+      <div class="page-header-badge">Segurança de Dados</div>
+      <h1>Política de Privacidade</h1>
+      <p>Como coletamos, utilizamos e protegemos suas informações pessoais.</p>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <section class="section legal-content">
+    <div class="container">
+      <div class="update-note">
+        <span class="update-note-icon">📅</span>
+        <p><strong>Última atualização:</strong> 10 de junho de 2026. Esta política pode ser atualizada a qualquer momento. Recomendamos que a consulte periodicamente.</p>
+      </div>
+
+      <div class="privacy-box">
+        <h4>🔒 Compromisso</h4>
+        <p>A plataforma <strong>Laudos & Contratos Imobiliários</strong> valoriza sua privacidade. Não vendemos, alugamos ou compartilhamos seus dados pessoais com terceiros para fins de marketing. Seus dados são utilizados exclusivamente para processar suas compras e melhorar sua experiência.</p>
+      </div>
+
+      <h2>1. Responsável pelo Tratamento</h2>
+      <p><strong>Nome:</strong> Carin Corbas</p>
+      <p><strong>E-mail:</strong> <a href="mailto:laudosecontratosimob@gmail.com">laudosecontratosimob@gmail.com</a></p>
+      <p><strong>Site:</strong> Laudos & Contratos Imobiliários</p>
+
+      <h2>2. Dados que Coletamos</h2>
+      <h3>2.1. Dados fornecidos por você</h3>
+      <ul>
+        <li><strong>Nome completo</strong> — para identificação do cliente;</li>
+        <li><strong>Endereço de e-mail</strong> — para envio dos arquivos e comunicações;</li>
+        <li><strong>CPF</strong> — para emissão de nota fiscal, quando aplicável;</li>
+        <li><strong>Telefone</strong> — para suporte, se necessário.</li>
+      </ul>
+
+      <h3>2.2. Dados coletados automaticamente</h3>
+      <ul>
+        <li>Endereço IP e localização aproximada;</li>
+        <li>Tipo de navegador e sistema operacional;</li>
+        <li>Páginas visitadas e tempo de permanência;</li>
+        <li>Dados de cookies e tecnologias similares.</li>
+      </ul>
+
+      <h2>3. Finalidade do Tratamento</h2>
+      <p>Utilizamos seus dados pessoais para as seguintes finalidades:</p>
+      <ul>
+        <li><strong>Processamento de pedidos</strong> — entrega dos modelos adquiridos por e-mail;</li>
+        <li><strong>Atendimento ao cliente</strong> — suporte, dúvidas e solicitações de reembolso;</li>
+        <li><strong>Segurança</strong> — prevenção a fraudes e proteção da plataforma;</li>
+        <li><strong>Melhorias</strong> — análise estatística anônima para aprimorar o site;</li>
+        <li><strong>Comunicações</strong> — envio de atualizações sobre produtos adquiridos (quando necessário).</li>
+      </ul>
+
+      <h2>4. Base Legal</h2>
+      <p>O tratamento dos seus dados fundamenta-se nas seguintes bases legais, conforme a LGPD (Lei nº 13.709/2018):</p>
+      <ul>
+        <li><strong>Execução de contrato</strong> — para processar sua compra e entregar os produtos;</li>
+        <li><strong>Legítimo interesse</strong> — para segurança, prevenção de fraudes e melhorias;</li>
+        <li><strong>Consentimento</strong> — para envio de comunicações de marketing (quando autorizado).</li>
+      </ul>
+
+      <h2>5. Compartilhamento de Dados</h2>
+      <p>Seus dados são compartilhados apenas quando estritamente necessário:</p>
+      <ul>
+        <li><strong>Gateway de pagamento (Cakto)</strong> — para processar transações de forma segura;</li>
+        <li><strong>Provedores de e-mail</strong> — para envio dos arquivos e comunicações;</li>
+        <li><strong>Autoridades competentes</strong> — em caso de ordem judicial ou exigência legal.</li>
+      </ul>
+      <p>Esses parceiros são obrigados a manter a confidencialidade e a segurança dos dados, em conformidade com a LGPD.</p>
+
+      <h2>6. Cookies e Tecnologias de Rastreamento</h2>
+      <p>Utilizamos cookies para:</p>
+      <ul>
+        <li>Manter sua sessão ativa durante a navegação;</li>
+        <li>Lembrar preferências de idioma e configurações;</li>
+        <li>Analisar o tráfego do site de forma anônima.</li>
+      </ul>
+      <p>Você pode desativar os cookies nas configurações do seu navegador, mas isso pode afetar algumas funcionalidades do site.</p>
+
+      <h2>7. Segurança das Informações</h2>
+      <p>Adotamos medidas técnicas e administrativas para proteger seus dados contra acesso não autorizado, alteração, divulgação ou destruição:</p>
+      <ul>
+        <li>Criptografia SSL/TLS em todas as páginas do site;</li>
+        <li>Armazenamento seguro em servidores protegidos;</li>
+        <li>Acesso restrito a dados pessoais, limitado apenas às pessoas autorizadas;</li>
+        <li>Monitoramento contínuo para detecção de vulnerabilidades.</li>
+      </ul>
+
+      <h2>8. Retenção dos Dados</h2>
+      <p>Mantemos seus dados pessoais apenas pelo tempo necessário para cumprir as finalidades descritas nesta política ou conforme exigido por lei:</p>
+      <ul>
+        <li>Dados de compra: pelo prazo de 5 anos, conforme o Código Civil e obrigações fiscais;</li>
+        <li>Dados de navegação: até 12 meses, para fins de análise e segurança;</li>
+        <li>Após o prazo, os dados são anonimizados ou excluídos de forma segura.</li>
+      </ul>
+
+      <h2>9. Seus Direitos</h2>
+      <p>De acordo com a LGPD, você possui os seguintes direitos:</p>
+      <ul>
+        <li><strong>Acesso</strong> — saber quais dados seus estão sendo tratados;</li>
+        <li><strong>Correção</strong> — retificar dados incompletos, inexatos ou desatualizados;</li>
+        <li><strong>Exclusão</strong> — solicitar a eliminação dos seus dados, quando possível;</li>
+        <li><strong>Portabilidade</strong> — receber seus dados em formato estruturado;</li>
+        <li><strong>Revogação de consentimento</strong> — retirar seu consentimento a qualquer momento;</li>
+        <li><strong>Oposição</strong> — contestar o tratamento baseado em legítimo interesse.</li>
+      </ul>
+      <p>Para exercer seus direitos, entre em contato pelo e-mail <a href="mailto:laudosecontratosimob@gmail.com">laudosecontratosimob@gmail.com</a>. Responderemos em até 15 dias úteis.</p>
+
+      <h2>10. Transferência Internacional</h2>
+      <p>Alguns de nossos parceiros (como provedores de e-mail e pagamento) podem armazenar dados em servidores localizados fora do Brasil. Nesses casos, garantimos que tais parceiros ofereçam nível de proteção compatível com a LGPD.</p>
+
+      <h2>11. Alterações nesta Política</h2>
+      <p>Podemos atualizar esta Política de Privacidade periodicamente. A data da última revisão está indicada no topo da página. Alterações significativas serão comunicadas por e-mail ou por aviso no site.</p>
+
+      <h2>12. Contato</h2>
+      <p>Em caso de dúvidas sobre esta Política de Privacidade ou sobre o tratamento dos seus dados, entre em contato:</p>
+      <ul>
+        <li><strong>Responsável:</strong> Carin Corbas</li>
+        <li><strong>E-mail:</strong> <a href="mailto:laudosecontratosimob@gmail.com">laudosecontratosimob@gmail.com</a></li>
+        <li><strong>Formulário:</strong> <a href="contato.html">clique aqui</a></li>
+      </ul>
+
+      <h2>13. Lei Aplicável</h2>
+      <p>Esta Política de Privacidade é regida pelas leis da República Federativa do Brasil, em especial pela Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018).</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">Laudos <span>&</span> Contratos Imobiliários</div>
+      <div class="footer-copy">© 2026 · Processamento seguro via Cakto</div>
+      <div class="footer-links">
+        <a href="faq.html">Perguntas Frequentes</a>
+        <a href="privacidade.html">Política de Privacidade</a>
+        <a href="termos.html">Termos de Serviço</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
