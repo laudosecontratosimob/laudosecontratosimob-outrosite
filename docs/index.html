@@ -21,225 +21,1180 @@
       --gray-light: #e2e6ed;
       --success: #22c55e;
     }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
+
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      color: var(--navy); background: var(--white); line-height: 1.6; overflow-x: hidden;
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* NAVBAR */
+    /* ===== NAVBAR ===== */
     .navbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(10, 22, 40, 0.95); backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(201,168,76,0.15); transition: all 0.3s ease;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(10, 22, 40, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      transition: all 0.3s ease;
     }
-    .nav-container {
-      max-width: 1280px; margin: 0 auto; padding: 0 2rem;
-      display: flex; align-items: center; justify-content: space-between; height: 72px;
-    }
-    .logo { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: -0.02em; }
-    .logo span { color: var(--gold); }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { color: var(--gray); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; position: relative; }
-    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.3s; }
-    .nav-links a:hover { color: var(--white); }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-cta { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy) !important; padding: 0.55rem 1.4rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
-    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.35); }
-    .mobile-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
 
-    /* HERO */
-    .hero { position: relative; min-height: 100vh; display: flex; align-items: center; background: var(--navy); overflow: hidden; }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
-                  radial-gradient(ellipse 60% 50% at 80% 20%, rgba(26,45,79,0.6) 0%, transparent 50%);
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
     }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy) !important;
+      padding: 0.55rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,168,76,0.35);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--navy);
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(26,45,79,0.6) 0%, transparent 50%);
+    }
+
     .hero-grid {
-      position: absolute; inset: 0; opacity: 0.04;
-      background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
       background-size: 60px 60px;
     }
+
     .hero-content {
-      position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: 8rem 2rem 4rem;
-      display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center;
+      position: relative;
+      z-index: 2;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 8rem 2rem 4rem;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 4rem;
+      align-items: center;
     }
+
     .hero-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.25);
-      color: var(--gold-light); padding: 0.45rem 1rem; border-radius: 100px;
-      font-size: 0.8rem; font-weight: 500; margin-bottom: 1.5rem; letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.25);
+      color: var(--gold-light);
+      padding: 0.45rem 1rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
     }
-    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 800; color: var(--white); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
-    .hero h1 em { color: var(--gold); font-style: normal; position: relative; }
-    .hero h1 em::after { content: ''; position: absolute; bottom: 4px; left: 0; right: 0; height: 8px; background: rgba(201,168,76,0.2); z-index: -1; border-radius: 2px; }
-    .hero-subtitle { font-size: 1.15rem; color: var(--gray); max-width: 520px; margin-bottom: 2.5rem; line-height: 1.7; }
-    .hero-cta-group { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
-    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy); padding: 1rem 2rem; border-radius: 12px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer; }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(201,168,76,0.4); }
-    .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: var(--white); padding: 1rem 2rem; border-radius: 12px; font-weight: 600; font-size: 1rem; text-decoration: none; border: 1.5px solid rgba(255,255,255,0.2); transition: all 0.3s ease; }
-    .btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.35); }
-    .hero-stats { display: flex; gap: 2.5rem; }
-    .stat { display: flex; flex-direction: column; }
-    .stat-number { font-size: 2rem; font-weight: 800; color: var(--gold); line-height: 1; }
-    .stat-label { font-size: 0.8rem; color: var(--gray); margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.08em; }
 
-    /* Hero Card */
-    .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
-    .hero-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 2rem; width: 100%; max-width: 420px; backdrop-filter: blur(10px); position: relative; }
-    .hero-card-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
-    .hero-card-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
-    .hero-card-title { color: var(--white); font-weight: 600; font-size: 0.95rem; }
-    .hero-card-sub { color: var(--gray); font-size: 0.8rem; }
-    .hero-card-body { display: flex; flex-direction: column; gap: 0.6rem; }
-    .card-row { display: flex; align-items: center; gap: 0.75rem; padding: 0.7rem 0.9rem; background: rgba(255,255,255,0.04); border-radius: 10px; border: 1px solid rgba(255,255,255,0.05); }
-    .card-row-check { width: 20px; height: 20px; background: rgba(34,197,94,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--success); font-size: 0.7rem; flex-shrink: 0; }
-    .card-row-text { color: rgba(255,255,255,0.75); font-size: 0.85rem; }
-    .card-price { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; }
-    .card-price-label { color: var(--gray); font-size: 0.8rem; }
-    .card-price-value { color: var(--gold); font-weight: 700; font-size: 1.2rem; }
-    .floating-badges { position: absolute; top: -20px; right: -20px; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy); padding: 0.5rem 1rem; border-radius: 100px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 8px 24px rgba(201,168,76,0.3); animation: float 3s ease-in-out infinite; }
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
 
-    /* TRUST BAR */
-    .trust-bar { background: var(--cream); border-bottom: 1px solid var(--gray-light); padding: 1.5rem 0; }
-    .trust-content { max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; }
-    .trust-item { display: flex; align-items: center; gap: 0.5rem; color: var(--navy-muted); font-size: 0.85rem; font-weight: 500; }
-    .trust-icon { width: 28px; height: 28px; background: var(--navy); color: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
 
-    /* SECTIONS */
-    .section { padding: 6rem 0; }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-    .section-header { text-align: center; max-width: 640px; margin: 0 auto 4rem; }
-    .section-label { display: inline-block; color: var(--gold-dark); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 1rem; }
-    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 1rem; }
-    .section-desc { color: var(--gray); font-size: 1.05rem; line-height: 1.7; }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
 
-    /* COMBOS */
-    .combos-section { background: var(--white); }
-    .combos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+    .hero h1 em {
+      color: var(--gold);
+      font-style: normal;
+      position: relative;
+    }
+
+    .hero h1 em::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: rgba(201,168,76,0.2);
+      z-index: -1;
+      border-radius: 2px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--gray);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy);
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(201,168,76,0.4);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--white);
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.35);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin-top: 0.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Hero Visual */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 420px;
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-card-icon {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .hero-card-title {
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .hero-card-sub {
+      color: var(--gray);
+      font-size: 0.8rem;
+    }
+
+    .hero-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .card-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.7rem 0.9rem;
+      background: rgba(255,255,255,0.04);
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .card-row-check {
+      width: 20px; height: 20px;
+      background: rgba(34,197,94,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--success);
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    .card-row-text {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.85rem;
+    }
+
+    .card-price {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-price-label {
+      color: var(--gray);
+      font-size: 0.8rem;
+    }
+
+    .card-price-value {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .floating-badges {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy);
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(201,168,76,0.3);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ===== TRUST BAR ===== */
+    .trust-bar {
+      background: var(--cream);
+      border-bottom: 1px solid var(--gray-light);
+      padding: 1.5rem 0;
+    }
+
+    .trust-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--navy-muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .trust-icon {
+      width: 28px; height: 28px;
+      background: var(--navy);
+      color: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    /* ===== SECTIONS COMMON ===== */
+    .section {
+      padding: 6rem 0;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 4rem;
+    }
+
+    .section-label {
+      display: inline-block;
+      color: var(--gold-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      color: var(--gray);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* ===== COMBOS ===== */
+    .combos-section {
+      background: var(--white);
+    }
+
+    .combos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
     .combo-card {
-      background: var(--white); border: 1.5px solid var(--gray-light); border-radius: 16px; padding: 2rem;
-      transition: all 0.35s ease; position: relative; overflow: hidden;
-      display: flex; flex-direction: column;
+      background: var(--white);
+      border: 1.5px solid var(--gray-light);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
     }
-    .combo-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--gold), var(--gold-dark)); opacity: 0; transition: opacity 0.35s; }
-    .combo-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(10,22,40,0.1); border-color: rgba(201,168,76,0.3); }
-    .combo-card:hover::before { opacity: 1; }
-    .combo-tag { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 600; color: var(--navy-muted); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
-    .combo-tag-icon { font-size: 1rem; }
-    .combo-title { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; line-height: 1.4; }
-    .combo-list { list-style: none; margin-bottom: 1.5rem; flex: 1; }
-    .combo-list li { display: flex; align-items: flex-start; gap: 0.5rem; color: var(--gray); font-size: 0.88rem; padding: 0.25rem 0; }
-    .combo-list li::before { content: '—'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
-    .combo-meta { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--gray); margin-bottom: 1.25rem; }
-    .combo-meta span { display: inline-flex; align-items: center; gap: 0.3rem; background: rgba(201,168,76,0.08); padding: 0.2rem 0.6rem; border-radius: 6px; font-weight: 500; }
-    .combo-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1.25rem; border-top: 1px solid var(--gray-light); gap: 0.75rem; flex-wrap: wrap; }
-    .combo-price { display: flex; flex-direction: column; }
-    .combo-price-label { font-size: 0.75rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.05em; }
-    .combo-price-value { font-size: 1.5rem; font-weight: 800; color: var(--navy); }
-    .combo-actions { display: flex; align-items: center; gap: 0.6rem; }
-    .combo-btn { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--navy); color: var(--white); padding: 0.7rem 1.2rem; border-radius: 10px; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: all 0.25s; border: none; cursor: pointer; }
-    .combo-btn:hover { background: var(--gold); color: var(--navy); transform: scale(1.03); }
-    .combo-saibamais { display: inline-flex; align-items: center; gap: 0.3rem; color: var(--gold-dark); font-size: 0.82rem; font-weight: 600; text-decoration: none; border: 1.5px solid rgba(168,138,58,0.35); padding: 0.65rem 0.9rem; border-radius: 10px; transition: all 0.25s; white-space: nowrap; }
-    .combo-saibamais:hover { background: rgba(201,168,76,0.08); border-color: var(--gold-dark); }
-    .combo-card.featured { border-color: var(--gold); background: linear-gradient(180deg, rgba(201,168,76,0.04), var(--white)); }
-    .combo-card.featured::before { opacity: 1; }
-    .featured-badge { position: absolute; top: 1rem; right: 1rem; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy); font-size: 0.7rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 6px; }
 
-    /* MODELS */
-    .models-section { background: var(--cream); }
-    .models-tabs { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
-    .tab-btn { padding: 0.7rem 1.4rem; border-radius: 10px; border: 1.5px solid transparent; background: transparent; color: var(--gray); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.25s; font-family: inherit; }
-    .tab-btn.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
-    .tab-btn:hover:not(.active) { border-color: var(--gray-light); color: var(--navy); }
-    .models-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
-    .model-card { background: var(--white); border-radius: 14px; padding: 1.75rem; border: 1px solid var(--gray-light); transition: all 0.3s ease; display: none; flex-direction: column; }
-    .model-card.visible { display: flex; }
-    .model-card:hover { box-shadow: 0 12px 32px rgba(10,22,40,0.08); transform: translateY(-3px); }
-    .model-tag { display: inline-block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-dark); background: rgba(201,168,76,0.1); padding: 0.25rem 0.7rem; border-radius: 6px; margin-bottom: 0.75rem; align-self: flex-start; }
-    .model-title { font-size: 1rem; font-weight: 700; color: var(--navy); line-height: 1.4; margin-bottom: 0.75rem; }
-    .model-desc { font-size: 0.88rem; color: var(--gray); margin-bottom: 1.25rem; line-height: 1.6; flex: 1; }
-    .model-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; }
-    .model-price { font-size: 1.25rem; font-weight: 800; color: var(--navy); }
-    .model-actions { display: flex; align-items: center; gap: 0.6rem; }
-    .model-btn { display: inline-flex; align-items: center; gap: 0.3rem; color: var(--navy); font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: color 0.2s; }
-    .model-btn:hover { color: var(--gold-dark); }
-    .model-btn svg { transition: transform 0.2s; }
-    .model-btn:hover svg { transform: translateX(3px); }
-    .model-saibamais { display: inline-flex; align-items: center; gap: 0.3rem; color: var(--gold-dark); font-size: 0.8rem; font-weight: 600; text-decoration: none; border: 1.5px solid rgba(168,138,58,0.35); padding: 0.4rem 0.75rem; border-radius: 8px; transition: all 0.25s; white-space: nowrap; }
-    .model-saibamais:hover { background: rgba(201,168,76,0.08); border-color: var(--gold-dark); }
+    .combo-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+      opacity: 0;
+      transition: opacity 0.35s;
+    }
 
-    /* HOW IT WORKS */
-    .how-section { background: var(--navy); position: relative; overflow: hidden; }
-    .how-section .section-title, .how-section .section-label { color: var(--white); }
-    .how-section .section-desc { color: var(--gray); }
-    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
-    .step { position: relative; text-align: center; }
-    .step-number { width: 56px; height: 56px; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 800; margin: 0 auto 1.25rem; position: relative; z-index: 2; }
-    .step:not(:last-child)::after { content: ''; position: absolute; top: 28px; left: 60%; width: calc(100% - 20px); height: 2px; background: linear-gradient(90deg, var(--gold), transparent); opacity: 0.3; }
-    .step-title { color: var(--white); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .step-desc { color: var(--gray); font-size: 0.9rem; line-height: 1.6; }
+    .combo-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(10,22,40,0.1);
+      border-color: rgba(201,168,76,0.3);
+    }
 
-    /* TESTIMONIALS */
-    .testimonials-section { background: var(--cream); }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
-    .testimonial-card { background: var(--white); border-radius: 16px; padding: 2rem; border: 1px solid var(--gray-light); transition: all 0.3s ease; position: relative; }
-    .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(10,22,40,0.08); }
-    .testimonial-stars { color: var(--gold); font-size: 1.1rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
-    .testimonial-text { color: var(--navy-muted); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.25rem; font-style: italic; }
-    .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
-    .testimonial-avatar { width: 44px; height: 44px; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; flex-shrink: 0; }
-    .testimonial-name { font-weight: 700; color: var(--navy); font-size: 0.9rem; }
-    .testimonial-role { font-size: 0.8rem; color: var(--gray); }
-    .testimonial-quote-icon { position: absolute; top: 1.25rem; right: 1.5rem; font-size: 2.5rem; color: rgba(201,168,76,0.15); font-family: 'Playfair Display', serif; line-height: 1; }
+    .combo-card:hover::before {
+      opacity: 1;
+    }
 
-    /* CREATOR */
-    .creator-section { background: var(--white); }
-    .creator-content { display: grid; grid-template-columns: 320px 1fr; gap: 3rem; align-items: center; max-width: 1000px; margin: 0 auto; }
-    .creator-photo-wrap { position: relative; }
-    .creator-photo { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, var(--navy-muted), var(--navy)); border-radius: 20px; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 2px solid rgba(201,168,76,0.2); }
-    .creator-photo-placeholder { font-size: 4rem; opacity: 0.25; }
-    .creator-badge { position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy); padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.75rem; font-weight: 700; white-space: nowrap; box-shadow: 0 6px 18px rgba(201,168,76,0.3); }
-    .creator-info h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--navy); margin-bottom: 0.25rem; }
-    .creator-info .creator-role { color: var(--gold-dark); font-weight: 600; font-size: 0.9rem; margin-bottom: 1rem; display: block; }
-    .creator-bio { color: var(--gray); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; }
-    .creator-creds { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-    .creator-cred { display: flex; align-items: flex-start; gap: 0.6rem; padding: 0.75rem 1rem; background: var(--cream); border-radius: 10px; border: 1px solid var(--gray-light); }
-    .creator-cred-icon { width: 32px; height: 32px; background: var(--navy); color: var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; }
-    .creator-cred-text { font-size: 0.82rem; color: var(--navy-muted); font-weight: 500; line-height: 1.4; }
+    .combo-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--navy-muted);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
 
-    /* SECURITY */
-    .security-section { background: var(--navy); padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .security-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-    .security-item { display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.25rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; transition: all 0.25s ease; }
-    .security-item:hover { background: rgba(255,255,255,0.07); border-color: rgba(201,168,76,0.2); }
-    .security-icon { width: 40px; height: 40px; background: rgba(201,168,76,0.12); color: var(--gold); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
-    .security-text strong { display: block; color: var(--white); font-size: 0.85rem; font-weight: 600; }
-    .security-text span { color: var(--gray); font-size: 0.78rem; }
+    .combo-tag-icon {
+      font-size: 1rem;
+    }
 
-    /* CTA */
-    .cta-section { background: linear-gradient(135deg, var(--cream), var(--white)); text-align: center; }
-    .cta-box { max-width: 720px; margin: 0 auto; padding: 4rem 2rem; background: var(--white); border-radius: 24px; box-shadow: 0 24px 64px rgba(10,22,40,0.08); border: 1px solid var(--gray-light); }
-    .cta-box h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--navy); margin-bottom: 1rem; }
-    .cta-box p { color: var(--gray); margin-bottom: 2rem; font-size: 1.05rem; }
+    .combo-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
 
-    /* FOOTER */
-    .footer { background: var(--navy); padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.06); }
-    .footer-content { max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--white); }
-    .footer-brand span { color: var(--gold); }
-    .footer-copy { color: var(--gray); font-size: 0.85rem; }
-    .footer-links { display: flex; gap: 1.5rem; }
-    .footer-links a { color: var(--gray); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--gold); }
+    .combo-list {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
 
-    /* RESPONSIVE */
+    .combo-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      color: var(--gray);
+      font-size: 0.88rem;
+      padding: 0.25rem 0;
+    }
+
+    .combo-list li::before {
+      content: '—';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .combo-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin-bottom: 1.25rem;
+    }
+
+    .combo-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: rgba(201,168,76,0.08);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    .combo-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--gray-light);
+    }
+
+    .combo-price {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .combo-price-label {
+      font-size: 0.75rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .combo-price-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .combo-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--navy);
+      color: var(--white);
+      padding: 0.7rem 1.2rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .combo-btn:hover {
+      background: var(--gold);
+      color: var(--navy);
+      transform: scale(1.03);
+    }
+
+    .combo-card.featured {
+      border-color: var(--gold);
+      background: linear-gradient(180deg, rgba(201,168,76,0.04), var(--white));
+    }
+
+    .combo-card.featured::before {
+      opacity: 1;
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+    }
+
+    /* ===== INDIVIDUAL MODELS ===== */
+    .models-section {
+      background: var(--cream);
+    }
+
+    .models-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 0.7rem 1.4rem;
+      border-radius: 10px;
+      border: 1.5px solid transparent;
+      background: transparent;
+      color: var(--gray);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+      font-family: inherit;
+    }
+
+    .tab-btn.active {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+
+    .tab-btn:hover:not(.active) {
+      border-color: var(--gray-light);
+      color: var(--navy);
+    }
+
+    .models-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .model-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 1.75rem;
+      border: 1px solid var(--gray-light);
+      transition: all 0.3s ease;
+    }
+
+    .model-card:hover {
+      box-shadow: 0 12px 32px rgba(10,22,40,0.08);
+      transform: translateY(-3px);
+    }
+
+    .model-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-dark);
+      background: rgba(201,168,76,0.1);
+      padding: 0.25rem 0.7rem;
+      border-radius: 6px;
+      margin-bottom: 0.75rem;
+    }
+
+    .model-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.4;
+      margin-bottom: 0.75rem;
+    }
+
+    .model-desc {
+      font-size: 0.88rem;
+      color: var(--gray);
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+    }
+
+    .model-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .model-price {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .model-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: var(--navy);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .model-btn:hover {
+      color: var(--gold-dark);
+    }
+
+    .model-btn svg {
+      transition: transform 0.2s;
+    }
+
+    .model-btn:hover svg {
+      transform: translateX(3px);
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .how-section {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .how-section .section-title,
+    .how-section .section-label {
+      color: var(--white);
+    }
+
+    .how-section .section-desc {
+      color: var(--gray);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .step {
+      position: relative;
+      text-align: center;
+    }
+
+    .step-number {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin: 0 auto 1.25rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 60%;
+      width: calc(100% - 20px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      opacity: 0.3;
+    }
+
+    .step-title {
+      color: var(--white);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-desc {
+      color: var(--gray);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials-section {
+      background: var(--cream);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid var(--gray-light);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(10,22,40,0.08);
+    }
+
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.1em;
+    }
+
+    .testimonial-text {
+      color: var(--navy-muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 0.9rem;
+    }
+
+    .testimonial-role {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    .testimonial-quote-icon {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      font-size: 2.5rem;
+      color: rgba(201,168,76,0.15);
+      font-family: 'Playfair Display', serif;
+      line-height: 1;
+    }
+
+    /* ===== CREATOR BIO ===== */
+    .creator-section {
+      background: var(--white);
+    }
+
+    .creator-content {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 3rem;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .creator-photo-wrap {
+      position: relative;
+    }
+
+    .creator-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--navy-muted), var(--navy));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 2px solid rgba(201,168,76,0.2);
+    }
+
+    .creator-photo-placeholder {
+      font-size: 4rem;
+      opacity: 0.25;
+    }
+
+    .creator-badge {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy);
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      white-space: nowrap;
+      box-shadow: 0 6px 18px rgba(201,168,76,0.3);
+    }
+
+    .creator-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+
+    .creator-info .creator-role {
+      color: var(--gold-dark);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .creator-bio {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .creator-creds {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    .creator-cred {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.75rem 1rem;
+      background: var(--cream);
+      border-radius: 10px;
+      border: 1px solid var(--gray-light);
+    }
+
+    .creator-cred-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--navy);
+      color: var(--gold);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .creator-cred-text {
+      font-size: 0.82rem;
+      color: var(--navy-muted);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* ===== SECURITY BADGES ===== */
+    .security-section {
+      background: var(--navy);
+      padding: 3rem 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .security-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      transition: all 0.25s ease;
+    }
+
+    .security-item:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(201,168,76,0.2);
+    }
+
+    .security-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(201,168,76,0.12);
+      color: var(--gold);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .security-text strong {
+      display: block;
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .security-text span {
+      color: var(--gray);
+      font-size: 0.78rem;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      background: linear-gradient(135deg, var(--cream), var(--white));
+      text-align: center;
+    }
+
+    .cta-box {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      background: var(--white);
+      border-radius: 24px;
+      box-shadow: 0 24px 64px rgba(10,22,40,0.08);
+      border: 1px solid var(--gray-light);
+    }
+
+    .cta-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .cta-box p {
+      color: var(--gray);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--navy);
+      padding: 3rem 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .footer-brand span {
+      color: var(--gold);
+    }
+
+    .footer-copy {
+      color: var(--gray);
+      font-size: 0.85rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    /* ===== MOBILE MENU ===== */
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
-      .hero-content { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+      }
       .hero-subtitle { margin-left: auto; margin-right: auto; }
       .hero-cta-group { justify-content: center; }
       .hero-stats { justify-content: center; }
@@ -252,6 +1207,7 @@
       .creator-creds { max-width: 500px; margin: 0 auto; }
       .security-grid { grid-template-columns: repeat(2, 1fr); }
     }
+
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .mobile-toggle { display: block; }
@@ -261,16 +1217,7 @@
       .section { padding: 4rem 0; }
       .footer-content { flex-direction: column; text-align: center; }
       .security-grid { grid-template-columns: 1fr; }
-      .combo-footer { flex-direction: column; align-items: flex-start; }
-      .combo-actions { width: 100%; }
-      .combo-btn, .combo-saibamais { flex: 1; justify-content: center; }
-      .model-footer { flex-direction: column; align-items: flex-start; }
-      .model-actions { width: 100%; }
-      .model-btn, .model-saibamais { flex: 1; justify-content: center; }
     }
-
-    /* Arrow icon helper */
-    .arrow-icon { display: inline-flex; }
   </style>
 </head>
 <body>
@@ -300,7 +1247,7 @@
         <div class="hero-badge">Documentação imobiliária de alto padrão</div>
         <h1>Modelos jurídicos <em>prontos para usar</em> com rigor técnico</h1>
         <p class="hero-subtitle">
-          Laudos periciais, vistorias e contratos de locação desenvolvidos conforme ABNT NBR 14653.
+          Laudos periciais, vistorias e contratos de locação desenvolvidos conforme ABNT NBR 14653. 
           Edite em Word e aplique imediatamente no seu dia a dia profissional.
         </p>
         <div class="hero-cta-group">
@@ -311,9 +1258,18 @@
           <a href="#modelos" class="btn-secondary">Ver Modelos Individuais</a>
         </div>
         <div class="hero-stats">
-          <div class="stat"><span class="stat-number">23</span><span class="stat-label">Modelos</span></div>
-          <div class="stat"><span class="stat-number">4</span><span class="stat-label">Categorias</span></div>
-          <div class="stat"><span class="stat-number">100%</span><span class="stat-label">Editável</span></div>
+          <div class="stat">
+            <span class="stat-number">23</span>
+            <span class="stat-label">Modelos</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">4</span>
+            <span class="stat-label">Categorias</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Editável</span>
+          </div>
         </div>
       </div>
       <div class="hero-visual">
@@ -327,7 +1283,7 @@
             </div>
           </div>
           <div class="hero-card-body">
-            <div class="card-row"><div class="card-row-check">&#10003;</div><span class="card-row-text">Método Comparativo Direto — Graus I e II de Fundamentação</span></div>
+            <div class="card-row"><div class="card-row-check">&#10003;</div><span class="card-row-text">Método Comparativo Direto - Graus I e II de Fundamentação</span></div>
             <div class="card-row"><div class="card-row-check">&#10003;</div><span class="card-row-text">Método da Renda</span></div>
             <div class="card-row"><div class="card-row-check">&#10003;</div><span class="card-row-text">Método do Custo</span></div>
             <div class="card-row"><div class="card-row-check">&#10003;</div><span class="card-row-text">Método Evolutivo</span></div>
@@ -362,7 +1318,7 @@
       </div>
       <div class="combos-grid">
 
-        <!-- Combo 1 — Judicial Standard -->
+        <!-- Combo 1 -->
         <div class="combo-card featured">
           <div class="featured-badge">Mais Popular</div>
           <div class="combo-tag"><span class="combo-tag-icon">&#9878;</span> Combo Standard — Modelos Judiciais</div>
@@ -377,14 +1333,11 @@
           <div class="combo-meta"><span>&#128221; Word e Excel</span><span>&#9889; Entrega imediata</span></div>
           <div class="combo-footer">
             <div class="combo-price"><span class="combo-price-label">Investimento</span><span class="combo-price-value">R$ 597</span></div>
-            <div class="combo-actions">
-              <a href="end.saibamais" class="combo-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/pt69igg_913741" class="combo-btn">Adquirir &rarr;</a>
-            </div>
+            <a href="https://pay.cakto.com.br/pt69igg_913741" class="combo-btn">Adquirir &rarr;</a>
           </div>
         </div>
 
-        <!-- Combo 2 — Judicial Premium -->
+        <!-- Combo 2 -->
         <div class="combo-card">
           <div class="combo-tag"><span class="combo-tag-icon">&#9878;</span> Combo Premium — Modelos Judiciais</div>
           <h3 class="combo-title">Laudos de Avaliação Mercadológica</h3>
@@ -398,14 +1351,11 @@
           <div class="combo-meta"><span>&#128221; Word e Excel</span><span>&#9889; Entrega imediata</span></div>
           <div class="combo-footer">
             <div class="combo-price"><span class="combo-price-label">Investimento</span><span class="combo-price-value">R$ 617</span></div>
-            <div class="combo-actions">
-              <a href="end.saibamais" class="combo-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/i2z5a2r_917748" class="combo-btn">Adquirir &rarr;</a>
-            </div>
+            <a href="https://pay.cakto.com.br/i2z5a2r_917748" class="combo-btn">Adquirir &rarr;</a>
           </div>
         </div>
 
-        <!-- Combo 3 — Extrajudicial Standard -->
+        <!-- Combo 3 -->
         <div class="combo-card">
           <div class="combo-tag"><span class="combo-tag-icon">&#128203;</span> Combo Standard — Modelos Extrajudiciais</div>
           <h3 class="combo-title">Laudos de Avaliação Mercadológica</h3>
@@ -419,14 +1369,11 @@
           <div class="combo-meta"><span>&#128221; Word e Excel</span><span>&#9889; Entrega imediata</span></div>
           <div class="combo-footer">
             <div class="combo-price"><span class="combo-price-label">Investimento</span><span class="combo-price-value">R$ 497</span></div>
-            <div class="combo-actions">
-              <a href="end.saibamais" class="combo-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/x76b29j_913768" class="combo-btn">Adquirir &rarr;</a>
-            </div>
+            <a href="https://pay.cakto.com.br/x76b29j_913768" class="combo-btn">Adquirir &rarr;</a>
           </div>
         </div>
 
-        <!-- Combo 4 — Extrajudicial Premium -->
+        <!-- Combo 4 -->
         <div class="combo-card">
           <div class="combo-tag"><span class="combo-tag-icon">&#128203;</span> Combo Premium — Modelos Extrajudiciais</div>
           <h3 class="combo-title">Laudos de Avaliação Mercadológica</h3>
@@ -440,14 +1387,11 @@
           <div class="combo-meta"><span>&#128221; Word e Excel</span><span>&#9889; Entrega imediata</span></div>
           <div class="combo-footer">
             <div class="combo-price"><span class="combo-price-label">Investimento</span><span class="combo-price-value">R$ 517</span></div>
-            <div class="combo-actions">
-              <a href="end.saibamais" class="combo-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/553c3jx_917742" class="combo-btn">Adquirir &rarr;</a>
-            </div>
+            <a href="https://pay.cakto.com.br/553c3jx_917742" class="combo-btn">Adquirir &rarr;</a>
           </div>
         </div>
 
-        <!-- Combo 5 — Vistoria -->
+        <!-- Combo 5 -->
         <div class="combo-card">
           <div class="combo-tag"><span class="combo-tag-icon">&#127968;</span> Combo — Modelos de Vistoria</div>
           <h3 class="combo-title">Laudos de Vistoria Imobiliária</h3>
@@ -458,14 +1402,11 @@
           <div class="combo-meta"><span>&#128221; Word</span><span>&#9889; Entrega imediata</span></div>
           <div class="combo-footer">
             <div class="combo-price"><span class="combo-price-label">Investimento</span><span class="combo-price-value">R$ 77</span></div>
-            <div class="combo-actions">
-              <a href="end.saibamais" class="combo-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/7ww43tv_913773" class="combo-btn">Adquirir &rarr;</a>
-            </div>
+            <a href="https://pay.cakto.com.br/7ww43tv_913773" class="combo-btn">Adquirir &rarr;</a>
           </div>
         </div>
 
-        <!-- Combo 6 — Contrato -->
+        <!-- Combo 6 -->
         <div class="combo-card">
           <div class="combo-tag"><span class="combo-tag-icon">&#128196;</span> Combo — Modelos de Contrato</div>
           <h3 class="combo-title">Contratos de Locação de Imóveis</h3>
@@ -477,10 +1418,7 @@
           <div class="combo-meta"><span>&#128221; Word</span><span>&#9889; Entrega imediata</span></div>
           <div class="combo-footer">
             <div class="combo-price"><span class="combo-price-label">Investimento</span><span class="combo-price-value">R$ 197</span></div>
-            <div class="combo-actions">
-              <a href="end.saibamais" class="combo-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/3cef3jz_913784" class="combo-btn">Adquirir &rarr;</a>
-            </div>
+            <a href="https://pay.cakto.com.br/3cef3jz_913784" class="combo-btn">Adquirir &rarr;</a>
           </div>
         </div>
 
@@ -498,239 +1436,73 @@
       </div>
 
       <div class="models-tabs">
-        <button class="tab-btn active" data-tab="judicial">Laudos Judiciais</button>
-        <button class="tab-btn" data-tab="extrajudicial">Laudos Extrajudiciais</button>
-        <button class="tab-btn" data-tab="vistoria">Vistorias</button>
-        <button class="tab-btn" data-tab="contrato">Contratos</button>
+        <button class="tab-btn active">Laudos Judiciais</button>
+        <button class="tab-btn active">Laudos Extrajudiciais</button>
+        <button class="tab-btn active">Vistorias</button>
+        <button class="tab-btn active">Contratos</button>
       </div>
 
       <div class="models-grid">
-
-        <!-- ===== JUDICIAIS ===== -->
-        <div class="model-card visible" data-category="judicial">
+        <!-- Judicial -->
+        <div class="model-card">
           <span class="model-tag">Modelo Judicial</span>
           <h3 class="model-title">Laudo — Método Comparativo Direto · Graus I e II</h3>
           <p class="model-desc">Modelo editável normatizado conforme ABNT NBR 14653 para processos judiciais imobiliários.</p>
           <div class="model-footer">
             <span class="model-price">R$ 147</span>
-            <div class="model-actions">
-              <a href="end.saibamais" class="model-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/uv79dtb_913811" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            </div>
+            <a href="https://pay.cakto.com.br/uv79dtb_913811" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
           </div>
         </div>
 
-        <div class="model-card visible" data-category="judicial">
+        <div class="model-card">
           <span class="model-tag">Modelo Judicial</span>
           <h3 class="model-title">Laudo — Método Comparativo Direto · Grau III</h3>
           <p class="model-desc">Laudo pericial judicial com maior grau de fundamentação. Estrutura técnica normatizada ABNT NBR 14653.</p>
           <div class="model-footer">
             <span class="model-price">R$ 247</span>
-            <div class="model-actions">
-              <a href="end.saibamais" class="model-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/34x9kte_913872" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            </div>
+            <a href="https://pay.cakto.com.br/34x9kte_913872" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
           </div>
         </div>
 
-        <div class="model-card visible" data-category="judicial">
+        <div class="model-card">
           <span class="model-tag">Modelo Judicial</span>
           <h3 class="model-title">Laudo — Método da Renda</h3>
           <p class="model-desc">Modelo editável de laudo pericial judicial de avaliação mercadológica por método da renda.</p>
           <div class="model-footer">
             <span class="model-price">R$ 167</span>
-            <div class="model-actions">
-              <a href="end.saibamais" class="model-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/pogi82u_913892" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            </div>
+            <a href="https://pay.cakto.com.br/pogi82u_913892" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
           </div>
         </div>
 
-        <div class="model-card visible" data-category="judicial">
+        <div class="model-card">
           <span class="model-tag">Modelo Judicial</span>
           <h3 class="model-title">Laudo — Método do Custo</h3>
           <p class="model-desc">Modelo editável normatizado conforme ABNT NBR 14653 para processos judiciais imobiliários.</p>
           <div class="model-footer">
             <span class="model-price">R$ 157</span>
-            <div class="model-actions">
-              <a href="end.saibamais" class="model-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/3446zxz_913910" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            </div>
+            <a href="https://pay.cakto.com.br/3446zxz_913910" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
           </div>
         </div>
 
-        <div class="model-card visible" data-category="judicial">
+        <div class="model-card">
           <span class="model-tag">Modelo Judicial</span>
           <h3 class="model-title">Laudo — Método Evolutivo</h3>
-          <p class="model-desc">Modelo editável de laudo pericial judicial de avaliação mercadológica por método evolutivo.</p>
+          <p class="model-desc">Modelo editável de laudo pericial judicial de avaliação mercatológica por método evolutivo.</p>
           <div class="model-footer">
             <span class="model-price">R$ 177</span>
-            <div class="model-actions">
-              <a href="end.saibamais" class="model-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/h8vnhfm_913927" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            </div>
+            <a href="https://pay.cakto.com.br/h8vnhfm_913927" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
           </div>
         </div>
 
-        <div class="model-card visible" data-category="judicial">
+        <div class="model-card">
           <span class="model-tag">Modelo Judicial</span>
           <h3 class="model-title">Laudo — Método Involutivo</h3>
           <p class="model-desc">Modelo editável normatizado conforme ABNT NBR 14653 para processos judiciais imobiliários.</p>
           <div class="model-footer">
             <span class="model-price">R$ 197</span>
-            <div class="model-actions">
-              <a href="end.saibamais" class="model-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/5m686fr_913944" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            </div>
+            <a href="https://pay.cakto.com.br/5m686fr_913944" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
           </div>
         </div>
-
-        <!-- ===== EXTRAJUDICIAIS ===== -->
-        <div class="model-card" data-category="extrajudicial">
-          <span class="model-tag">Modelo Extrajudicial</span>
-          <h3 class="model-title">Laudo — Método Comparativo Direto · Graus I e II</h3>
-          <p class="model-desc">Modelo editável normatizado conforme ABNT NBR 14653 para avaliações extrajudiciais imobiliárias.</p>
-          <div class="model-footer">
-            <span class="model-price">R$ 147</span>
-            <div class="model-actions">
-              <a href="end.saibamais" class="model-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/36ubojn_914063" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="model-card" data-category="extrajudicial">
-          <span class="model-tag">Modelo Extrajudicial</span>
-          <h3 class="model-title">Laudo — Método Comparativo Direto · Grau III</h3>
-          <p class="model-desc">Laudo extrajudicial com maior grau de fundamentação. Estrutura técnica normatizada ABNT NBR 14653.</p>
-          <div class="model-footer">
-            <span class="model-price">R$ 147</span>
-            <div class="model-actions">
-              <a href="end.saibamais" class="model-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/tbijmox_917680" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="model-card" data-category="extrajudicial">
-          <span class="model-tag">Modelo Extrajudicial</span>
-          <h3 class="model-title">Laudo — Método da Renda</h3>
-          <p class="model-desc">Modelo editável de laudo extrajudicial de avaliação mercadológica por método da renda.</p>
-          <div class="model-footer">
-            <span class="model-price">R$ 137</span>
-            <div class="model-actions">
-              <a href="end.saibamais" class="model-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/3dpk8ef_914074" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="model-card" data-category="extrajudicial">
-          <span class="model-tag">Modelo Extrajudicial</span>
-          <h3 class="model-title">Laudo — Método do Custo</h3>
-          <p class="model-desc">Modelo editável normatizado conforme ABNT NBR 14653 para avaliações extrajudiciais imobiliárias.</p>
-          <div class="model-footer">
-            <span class="model-price">R$ 157</span>
-            <div class="model-actions">
-              <a href="end.saibamais" class="model-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/ysiq5qq_916546" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="model-card" data-category="extrajudicial">
-          <span class="model-tag">Modelo Extrajudicial</span>
-          <h3 class="model-title">Laudo — Método Evolutivo</h3>
-          <p class="model-desc">Modelo editável de laudo extrajudicial de avaliação mercadológica por método evolutivo.</p>
-          <div class="model-footer">
-            <span class="model-price">R$ 157</span>
-            <div class="model-actions">
-              <a href="end.saibamais" class="model-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/3e6zuvv_914077" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="model-card" data-category="extrajudicial">
-          <span class="model-tag">Modelo Extrajudicial</span>
-          <h3 class="model-title">Laudo — Método Involutivo</h3>
-          <p class="model-desc">Modelo editável normatizado conforme ABNT NBR 14653 para avaliações extrajudiciais imobiliárias.</p>
-          <div class="model-footer">
-            <span class="model-price">R$ 177</span>
-            <div class="model-actions">
-              <a href="end.saibamais" class="model-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/n3pe237_914182" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- ===== VISTORIAS ===== -->
-        <div class="model-card" data-category="vistoria">
-          <span class="model-tag">Vistoria</span>
-          <h3 class="model-title">Laudo de Vistoria de Entrada</h3>
-          <p class="model-desc">Modelo editável para registro detalhado do estado do imóvel no início da locação. Protege locador e locatário.</p>
-          <div class="model-footer">
-            <span class="model-price">R$ 47</span>
-            <div class="model-actions">
-              <a href="end.saibamais" class="model-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/c2ma5y2_914251" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="model-card" data-category="vistoria">
-          <span class="model-tag">Vistoria</span>
-          <h3 class="model-title">Laudo de Vistoria de Saída</h3>
-          <p class="model-desc">Modelo editável para registro detalhado do estado do imóvel ao término da locação. Base documental para apuração de danos.</p>
-          <div class="model-footer">
-            <span class="model-price">R$ 47</span>
-            <div class="model-actions">
-              <a href="end.saibamais" class="model-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/32sprig_914253" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- ===== CONTRATOS ===== -->
-        <div class="model-card" data-category="contrato">
-          <span class="model-tag">Contrato</span>
-          <h3 class="model-title">Contrato de Locação — Garantia por Caução</h3>
-          <p class="model-desc">Modelo completo de contrato de locação residencial com garantia por depósito caução. Conforme Lei do Inquilinato.</p>
-          <div class="model-footer">
-            <span class="model-price">R$ 87</span>
-            <div class="model-actions">
-              <a href="end.saibamais" class="model-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/o7mprf2_914269" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="model-card" data-category="contrato">
-          <span class="model-tag">Contrato</span>
-          <h3 class="model-title">Contrato de Locação — Garantia por Fiador</h3>
-          <p class="model-desc">Modelo completo de contrato de locação residencial com garantia por fiador. Cláusulas de responsabilidade solidária incluídas.</p>
-          <div class="model-footer">
-            <span class="model-price">R$ 87</span>
-            <div class="model-actions">
-              <a href="end.saibamais" class="model-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/9d3vub3_914273" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="model-card" data-category="contrato">
-          <span class="model-tag">Contrato</span>
-          <h3 class="model-title">Contrato de Locação — Garantia por Seguro Fiança</h3>
-          <p class="model-desc">Modelo completo de contrato de locação residencial com garantia por seguro fiança. Estrutura atualizada conforme legislação vigente.</p>
-          <div class="model-footer">
-            <span class="model-price">R$ 87</span>
-            <div class="model-actions">
-              <a href="end.saibamais" class="model-saibamais">Saiba mais</a>
-              <a href="https://pay.cakto.com.br/md8xvoz_914280" class="model-btn">Baixar Agora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
@@ -777,60 +1549,85 @@
         <p class="section-desc">Profissionais do direito e do mercado imobiliário que confiam nos nossos modelos no dia a dia.</p>
       </div>
       <div class="testimonials-grid">
+
         <div class="testimonial-card">
           <div class="testimonial-quote-icon">"</div>
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-text">Os modelos judiciais me economizam horas de trabalho. A estrutura técnica está impecável e conforme a NBR 14653. Recomendo a todos os colegas peritos.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">DR</div>
-            <div><div class="testimonial-name">Dra. Roberta Lima</div><div class="testimonial-role">Advogada · Perita Judicial · SP</div></div>
+            <div>
+              <div class="testimonial-name">Dra. Roberta Lima</div>
+              <div class="testimonial-role">Advogada · Perita Judicial · SP</div>
+            </div>
           </div>
         </div>
+
         <div class="testimonial-card">
           <div class="testimonial-quote-icon">"</div>
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-text">Comprei o combo de contratos de locação e a qualidade superou minhas expectativas. As cláusulas são claras, bem redigidas e prontas para uso imediato.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">CM</div>
-            <div><div class="testimonial-name">Carlos Mendes</div><div class="testimonial-role">Corretor de Imóveis · RJ</div></div>
+            <div>
+              <div class="testimonial-name">Carlos Mendes</div>
+              <div class="testimonial-role">Corretor de Imóveis · RJ</div>
+            </div>
           </div>
         </div>
+
         <div class="testimonial-card">
           <div class="testimonial-quote-icon">"</div>
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-text">Finalmente encontrei modelos de vistoria que realmente cobrem todos os pontos necessários. Os laudos de entrada e saída são completos e muito bem estruturados.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">FS</div>
-            <div><div class="testimonial-name">Fernanda Souza</div><div class="testimonial-role">Administradora de Imóveis · MG</div></div>
+            <div>
+              <div class="testimonial-name">Fernanda Souza</div>
+              <div class="testimonial-role">Administradora de Imóveis · MG</div>
+            </div>
           </div>
         </div>
+
         <div class="testimonial-card">
           <div class="testimonial-quote-icon">"</div>
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-text">Utilizo os laudos extrajudiciais para atender clientes corporativos. A entrega é imediata, os documentos são editáveis e o suporte é excelente.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">AP</div>
-            <div><div class="testimonial-name">Dr. André Pereira</div><div class="testimonial-role">Advogado Imobiliário · RS</div></div>
+            <div>
+              <div class="testimonial-name">Dr. André Pereira</div>
+              <div class="testimonial-role">Advogado Imobiliário · RS</div>
+            </div>
           </div>
         </div>
+
         <div class="testimonial-card">
           <div class="testimonial-quote-icon">"</div>
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-text">A variedade de métodos de avaliação disponíveis é impressionante. Cada laudo tem fundamentação técnica sólida e segue rigorosamente as normas da ABNT.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">LC</div>
-            <div><div class="testimonial-name">Luciana Costa</div><div class="testimonial-role">Engenheira Avaliadora · DF</div></div>
+            <div>
+              <div class="testimonial-name">Luciana Costa</div>
+              <div class="testimonial-role">Engenheira Avaliadora · DF</div>
+            </div>
           </div>
         </div>
+
         <div class="testimonial-card">
           <div class="testimonial-quote-icon">"</div>
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-text">Excelente custo-benefício. Já recuperei o investimento em poucos processos. A padronização dos documentos aumentou a credibilidade dos meus laudos periciais.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">MA</div>
-            <div><div class="testimonial-name">Marcelo Alves</div><div class="testimonial-role">Perito Judicial · BA</div></div>
+            <div>
+              <div class="testimonial-name">Marcelo Alves</div>
+              <div class="testimonial-role">Perito Judicial · BA</div>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -871,7 +1668,7 @@
             </div>
             <div class="creator-cred">
               <div class="creator-cred-icon">&#128221;</div>
-              <div class="creator-cred-text">Desenvolvedora dos 23 modelos técnicos normatizados da plataforma</div>
+              <div class="creator-cred-text">Desenvolvedor dos 23 modelos técnicos normatizados da plataforma</div>
             </div>
           </div>
         </div>
@@ -879,25 +1676,37 @@
     </div>
   </section>
 
-  <!-- SECURITY -->
+  <!-- SECURITY BADGES -->
   <section class="security-section">
     <div class="container">
       <div class="security-grid">
         <div class="security-item">
           <div class="security-icon">&#128274;</div>
-          <div class="security-text"><strong>Pagamento Seguro</strong><span>Criptografia SSL de ponta a ponta</span></div>
+          <div class="security-text">
+            <strong>Pagamento Seguro</strong>
+            <span>Criptografia SSL de ponta a ponta</span>
+          </div>
         </div>
         <div class="security-item">
           <div class="security-icon">&#128737;</div>
-          <div class="security-text"><strong>Compra Protegida</strong><span>Garantia de 7 dias ou seu dinheiro de volta</span></div>
+          <div class="security-text">
+            <strong>Compra Protegida</strong>
+            <span>Garantia de 7 dias ou seu dinheiro de volta</span>
+          </div>
         </div>
         <div class="security-item">
           <div class="security-icon">&#9989;</div>
-          <div class="security-text"><strong>Modelos Validados</strong><span>Revisados conforme ABNT NBR 14653</span></div>
+          <div class="security-text">
+            <strong>Modelos Validados</strong>
+            <span>Revisados conforme ABNT NBR 14653</span>
+          </div>
         </div>
         <div class="security-item">
           <div class="security-icon">&#9889;</div>
-          <div class="security-text"><strong>Entrega Imediata</strong><span>Acesso instantâneo após a confirmação</span></div>
+          <div class="security-text">
+            <strong>Entrega Imediata</strong>
+            <span>Acesso instantâneo após a confirmação</span>
+          </div>
         </div>
       </div>
     </div>
@@ -929,29 +1738,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // Tab filtering for individual models
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const modelCards = document.querySelectorAll('.model-card');
-
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Update active tab
-        tabBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        // Show only matching cards
-        const tab = btn.dataset.tab;
-        modelCards.forEach(card => {
-          if (card.dataset.category === tab) {
-            card.classList.add('visible');
-          } else {
-            card.classList.remove('visible');
-          }
-        });
-      });
-    });
-  </script>
 
 </body>
 </html>
