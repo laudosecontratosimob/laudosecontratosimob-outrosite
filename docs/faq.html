@@ -24,325 +24,109 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--cream);
-            color: var(--navy);
-            line-height: 1.7;
-        }
-
+        body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--navy); line-height: 1.7; }
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
 
         /* NAVBAR */
         .navbar {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 6%;
-            height: 72px;
-            background: rgba(10, 22, 40, 0.92);
-            backdrop-filter: blur(12px);
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(10, 22, 40, 0.92); backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(201, 168, 76, 0.15);
         }
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--gold);
-            text-decoration: none;
-            letter-spacing: 0.5px;
+        .nav-container {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 6%; height: 72px;
         }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--gold); text-decoration: none; letter-spacing: 0.5px; }
         .logo span { color: var(--white); }
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-        .nav-links a {
-            color: var(--gray-light);
-            text-decoration: none;
-            font-size: 0.92rem;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px; left: 0;
-            width: 0; height: 2px;
-            background: var(--gold);
-            transition: width 0.3s;
-        }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { color: var(--gray-light); text-decoration: none; font-size: 0.92rem; font-weight: 500; transition: color 0.3s; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.3s; }
         .nav-links a:hover { color: var(--gold); }
         .nav-links a:hover::after { width: 100%; }
-        .nav-cta {
-            background: var(--gold);
-            color: var(--navy) !important;
-            padding: 0.55rem 1.4rem;
-            border-radius: 6px;
-            font-weight: 600 !important;
-            font-size: 0.85rem !important;
-        }
+        .nav-cta { background: var(--gold); color: var(--navy) !important; padding: 0.55rem 1.4rem; border-radius: 6px; font-weight: 600 !important; font-size: 0.85rem !important; }
         .nav-cta::after { display: none !important; }
         .nav-cta:hover { background: var(--gold-light); }
 
+        /* MOBILE TOGGLE */
+        .mobile-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; padding: 0.25rem; }
+
+        /* MOBILE MENU */
+        .mobile-menu {
+            display: none; flex-direction: column;
+            background: rgba(10, 22, 40, 0.98);
+            border-top: 1px solid rgba(201,168,76,0.15);
+            padding: 1rem 6% 1.5rem; gap: 0;
+        }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a { color: var(--gray-light); text-decoration: none; font-size: 1rem; font-weight: 500; padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
+        .mobile-menu a:last-child { border-bottom: none; }
+        .mobile-menu a:hover { color: var(--gold); }
+        .mobile-menu .mob-cta { margin-top: 1rem; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy) !important; text-align: center; padding: 0.85rem; border-radius: 10px; font-weight: 700; border-bottom: none; }
+
         /* HERO FAQ */
-        .faq-hero {
-            background: var(--navy);
-            padding: 10rem 6% 4rem;
-            text-align: center;
-        }
-        .faq-hero h1 {
-            font-size: 2.8rem;
-            color: var(--white);
-            margin-bottom: 0.8rem;
-        }
+        .faq-hero { background: var(--navy); padding: 10rem 6% 4rem; text-align: center; }
+        .faq-hero h1 { font-size: 2.8rem; color: var(--white); margin-bottom: 0.8rem; }
         .faq-hero h1 span { color: var(--gold); }
-        .faq-hero p {
-            color: var(--gray);
-            font-size: 1.05rem;
-            max-width: 500px;
-            margin: 0 auto;
-        }
+        .faq-hero p { color: var(--gray); font-size: 1.05rem; max-width: 500px; margin: 0 auto; }
 
         /* SEARCH */
-        .search-box {
-            max-width: 560px;
-            margin: -1.5rem auto 3rem;
-            position: relative;
-            z-index: 2;
-        }
-        .search-box input {
-            width: 100%;
-            padding: 1.1rem 1.5rem 1.1rem 3.2rem;
-            border: 1px solid rgba(10,22,40,0.1);
-            border-radius: 12px;
-            font-size: 0.95rem;
-            font-family: 'Inter', sans-serif;
-            background: var(--white);
-            box-shadow: 0 8px 30px rgba(10,22,40,0.08);
-            outline: none;
-            transition: border-color 0.3s;
-        }
+        .search-box { max-width: 560px; margin: -1.5rem auto 3rem; position: relative; z-index: 2; }
+        .search-box input { width: 100%; padding: 1.1rem 1.5rem 1.1rem 3.2rem; border: 1px solid rgba(10,22,40,0.1); border-radius: 12px; font-size: 0.95rem; font-family: 'Inter', sans-serif; background: var(--white); box-shadow: 0 8px 30px rgba(10,22,40,0.08); outline: none; transition: border-color 0.3s; }
         .search-box input:focus { border-color: var(--gold); }
-        .search-box i {
-            position: absolute;
-            left: 1.2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--gray);
-            font-size: 1rem;
-        }
+        .search-box i { position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%); color: var(--gray); font-size: 1rem; }
 
         /* FAQ CONTENT */
-        .faq-section {
-            padding: 0 6% 5rem;
-            max-width: 850px;
-            margin: 0 auto;
-        }
-        .faq-category {
-            margin-bottom: 2.5rem;
-        }
-        .faq-category-title {
-            font-size: 1.15rem;
-            color: var(--navy);
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-        .faq-category-title i {
-            color: var(--gold);
-            font-size: 1rem;
-        }
-        .faq-item {
-            background: var(--white);
-            border-radius: 10px;
-            border: 1px solid rgba(10,22,40,0.06);
-            margin-bottom: 0.7rem;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-        .faq-item:hover {
-            border-color: rgba(201,168,76,0.2);
-            box-shadow: 0 4px 15px rgba(10,22,40,0.04);
-        }
-        .faq-question {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.1rem 1.4rem;
-            background: none;
-            border: none;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--navy);
-            cursor: pointer;
-            text-align: left;
-            transition: color 0.3s;
-        }
+        .faq-section { padding: 0 6% 5rem; max-width: 850px; margin: 0 auto; }
+        .faq-category { margin-bottom: 2.5rem; }
+        .faq-category-title { font-size: 1.15rem; color: var(--navy); font-weight: 600; font-family: 'Inter', sans-serif; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; }
+        .faq-category-title i { color: var(--gold); font-size: 1rem; }
+        .faq-item { background: var(--white); border-radius: 10px; border: 1px solid rgba(10,22,40,0.06); margin-bottom: 0.7rem; overflow: hidden; transition: all 0.3s; }
+        .faq-item:hover { border-color: rgba(201,168,76,0.2); box-shadow: 0 4px 15px rgba(10,22,40,0.04); }
+        .faq-question { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 1.4rem; background: none; border: none; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--navy); cursor: pointer; text-align: left; transition: color 0.3s; }
         .faq-question:hover { color: var(--gold-dark); }
-        .faq-question i {
-            color: var(--gold);
-            font-size: 0.85rem;
-            transition: transform 0.3s;
-            flex-shrink: 0;
-            margin-left: 1rem;
-        }
+        .faq-question i { color: var(--gold); font-size: 0.85rem; transition: transform 0.3s; flex-shrink: 0; margin-left: 1rem; }
         .faq-item.open .faq-question i { transform: rotate(180deg); }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s ease, padding 0.35s ease;
-        }
-        .faq-item.open .faq-answer {
-            max-height: 500px;
-        }
-        .faq-answer-inner {
-            padding: 0 1.4rem 1.2rem;
-            color: var(--navy-light);
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-        .faq-answer-inner a {
-            color: var(--gold-dark);
-            text-decoration: none;
-            font-weight: 500;
-        }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
+        .faq-item.open .faq-answer { max-height: 500px; }
+        .faq-answer-inner { padding: 0 1.4rem 1.2rem; color: var(--navy-light); font-size: 0.9rem; line-height: 1.7; }
+        .faq-answer-inner a { color: var(--gold-dark); text-decoration: none; font-weight: 500; }
         .faq-answer-inner a:hover { text-decoration: underline; }
-        .faq-answer-inner ul {
-            margin: 0.6rem 0 0.6rem 1.2rem;
-        }
-        .faq-answer-inner li {
-            margin-bottom: 0.3rem;
-        }
+        .faq-answer-inner ul { margin: 0.6rem 0 0.6rem 1.2rem; }
+        .faq-answer-inner li { margin-bottom: 0.3rem; }
 
         /* NOT FOUND */
-        .faq-not-found {
-            text-align: center;
-            padding: 3rem 1rem;
-            color: var(--gray);
-            display: none;
-        }
-        .faq-not-found i {
-            font-size: 2.5rem;
-            color: var(--gray-light);
-            margin-bottom: 1rem;
-        }
-        .faq-not-found p {
-            font-size: 0.95rem;
-        }
+        .faq-not-found { text-align: center; padding: 3rem 1rem; color: var(--gray); display: none; }
+        .faq-not-found i { font-size: 2.5rem; color: var(--gray-light); margin-bottom: 1rem; }
+        .faq-not-found p { font-size: 0.95rem; }
 
         /* CONTACT CTA */
-        .contact-cta {
-            background: var(--navy);
-            padding: 3.5rem 6%;
-            text-align: center;
-        }
-        .contact-cta h3 {
-            color: var(--white);
-            font-size: 1.6rem;
-            margin-bottom: 0.6rem;
-        }
-        .contact-cta p {
-            color: var(--gray);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--gold);
-            color: var(--navy);
-            padding: 0.95rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        .btn-primary:hover {
-            background: var(--gold-light);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(201,168,76,0.25);
-        }
+        .contact-cta { background: var(--navy); padding: 3.5rem 6%; text-align: center; }
+        .contact-cta h3 { color: var(--white); font-size: 1.6rem; margin-bottom: 0.6rem; }
+        .contact-cta p { color: var(--gray); font-size: 0.95rem; margin-bottom: 1.5rem; }
+        .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gold); color: var(--navy); padding: 0.95rem 2rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.3s; border: none; cursor: pointer; }
+        .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,168,76,0.25); }
 
         /* FOOTER */
-        .footer {
-            background: var(--navy);
-            padding: 3rem 6% 2rem;
-            border-top: 1px solid rgba(201,168,76,0.1);
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1fr;
-            gap: 3rem;
-            max-width: 1100px;
-            margin: 0 auto 2rem;
-        }
+        .footer { background: var(--navy); padding: 3rem 6% 2rem; border-top: 1px solid rgba(201,168,76,0.1); }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; max-width: 1100px; margin: 0 auto 2rem; }
         .footer-brand .logo { margin-bottom: 1rem; display: inline-block; }
-        .footer-brand p {
-            color: var(--gray);
-            font-size: 0.85rem;
-            line-height: 1.7;
-        }
-        .footer-col h4 {
-            color: var(--white);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1.2rem;
-            font-family: 'Inter', sans-serif;
-        }
-        .footer-col a, .footer-col p {
-            display: block;
-            color: var(--gray);
-            text-decoration: none;
-            font-size: 0.85rem;
-            padding: 0.3rem 0;
-            transition: color 0.3s;
-        }
+        .footer-brand p { color: var(--gray); font-size: 0.85rem; line-height: 1.7; }
+        .footer-col h4 { color: var(--white); font-size: 0.9rem; font-weight: 600; margin-bottom: 1.2rem; font-family: 'Inter', sans-serif; }
+        .footer-col a, .footer-col p { display: block; color: var(--gray); text-decoration: none; font-size: 0.85rem; padding: 0.3rem 0; transition: color 0.3s; }
         .footer-col a:hover { color: var(--gold); }
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            color: var(--gray);
-            font-size: 0.8rem;
-        }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--gray); font-size: 0.8rem; }
 
-        /* BACK TO TOP */
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--gray);
-            text-decoration: none;
-            font-size: 0.88rem;
-            margin-bottom: 2rem;
-            transition: color 0.3s;
-        }
+        /* BACK LINK */
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--gray); text-decoration: none; font-size: 0.88rem; margin-bottom: 2rem; transition: color 0.3s; }
         .back-link:hover { color: var(--gold); }
 
         /* RESPONSIVE */
-        @media (max-width: 1024px) {
-            .footer-grid { grid-template-columns: repeat(2, 1fr); }
-        }
+        @media (max-width: 1024px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 768px) {
             .nav-links { display: none; }
+            .mobile-toggle { display: block; }
             .faq-hero { padding: 8rem 6% 3rem; }
             .faq-hero h1 { font-size: 2rem; }
             .footer-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
@@ -353,15 +137,27 @@
 
     <!-- NAVBAR -->
     <nav class="navbar">
-        <a href="index.html" class="logo">Juridico<span>Modelos</span></a>
-        <ul class="nav-links">
-            <li><a href="index.html#combos">Combos</a></li>
-            <li><a href="index.html#modelos">Modelos</a></li>
-            <li><a href="index.html#como-funciona">Como Funciona</a></li>
-            <li><a href="index.html#depoimentos">Depoimentos</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="index.html#combos" class="nav-cta">Comprar Agora</a></li>
-        </ul>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Juridico<span>Modelos</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#combos">Combos</a></li>
+                <li><a href="index.html#modelos">Modelos</a></li>
+                <li><a href="index.html#como-funciona">Como Funciona</a></li>
+                <li><a href="index.html#depoimentos">Depoimentos</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="index.html#combos" class="nav-cta">Comprar Agora</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menu">&#9776;</button>
+        </div>
+        <!-- MOBILE MENU -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html#combos">Combos</a>
+            <a href="index.html#modelos">Modelos</a>
+            <a href="index.html#como-funciona">Como Funciona</a>
+            <a href="index.html#depoimentos">Depoimentos</a>
+            <a href="faq.html">FAQ</a>
+            <a href="index.html#combos" class="mob-cta">Comprar Agora</a>
+        </div>
     </nav>
 
     <!-- HERO -->
@@ -412,7 +208,7 @@
                 </button>
                 <div class="faq-answer">
                     <div class="faq-answer-inner">
-                        Sim! Pagamentos com cartão de crédito podem ser parcelados em até 12 vezes. O valor das parcelas varia de acordo com o combo escolhido. O Combo Completo, por exemplo, sai por aproximadamente R$ 12,25/mês em 12x.
+                        Sim! Pagamentos com cartão de crédito podem ser parcelados em até 12 vezes. O valor das parcelas varia de acordo com o combo escolhido.
                     </div>
                 </div>
             </div>
@@ -499,7 +295,7 @@
                 </button>
                 <div class="faq-answer">
                     <div class="faq-answer-inner">
-                        Não. Os modelos são extremamente simples de editar — basta substituir os campos indicados entre colchetes (ex: [NOME DO CLIENTE]) pelos dados reais do caso. Qualquer pessoa com conhecimento básico de Word consegue usar.
+                        Não. Os modelos são extremamente simples de editar — basta substituir os campos indicados entre colchetes (ex: [NOME DO CLIENTE]) pelos dados reais do caso.
                     </div>
                 </div>
             </div>
@@ -586,7 +382,7 @@
                 </button>
                 <div class="faq-answer">
                     <div class="faq-answer-inner">
-                        O Combo Completo Jurídico reúne <strong>todos os 23 modelos</strong> disponíveis no site: 6 contratos, 7 petições, 4 modelos de família, 3 gerais e mais 3 modelos extras de trabalhista. É a melhor opção de custo-benefício, com desconto de mais de 60% em relação à compra individual.
+                        O Combo Completo reúne <strong>todos os 23 modelos</strong> disponíveis no site. É a melhor opção de custo-benefício, com desconto significativo em relação à compra individual.
                     </div>
                 </div>
             </div>
@@ -608,13 +404,13 @@
                 </button>
                 <div class="faq-answer">
                     <div class="faq-answer-inner">
-                        Os preços podem ser ajustados periodicamente devido à inflação ou inclusão de novos modelos. Quem já comprou não sofre reajuste — o valor pago é válido para sempre.
+                        Os preços podem ser ajustados periodicamente. Quem já comprou não sofre reajuste — o valor pago é válido para sempre.
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Not found message -->
+        <!-- Not found -->
         <div class="faq-not-found" id="noResults">
             <i class="fas fa-search"></i>
             <p>Nenhuma dúvida encontrada com esse termo. <br>Tente outra palavra-chave ou <a href="mailto:contato@juridicomodelos.com">entre em contato</a>.</p>
@@ -659,19 +455,31 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            mobileToggle.innerHTML = mobileMenu.classList.contains('open') ? '&#10005;' : '&#9776;';
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                mobileToggle.innerHTML = '&#9776;';
+            });
+        });
+
+        // FAQ accordion
         function toggleFAQ(btn) {
             const item = btn.parentElement;
             const wasOpen = item.classList.contains('open');
-
-            // Close all
             document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-
-            // Toggle current
-            if (!wasOpen) {
-                item.classList.add('open');
-            }
+            if (!wasOpen) { item.classList.add('open'); }
         }
 
+        // FAQ search
         function searchFAQ() {
             const query = document.getElementById('faqSearch').value.toLowerCase().trim();
             const items = document.querySelectorAll('.faq-item');
@@ -680,15 +488,10 @@
 
             items.forEach(item => {
                 const text = item.textContent.toLowerCase();
-                if (text.includes(query)) {
-                    item.style.display = '';
-                    hasResults = true;
-                } else {
-                    item.style.display = 'none';
-                }
+                if (text.includes(query)) { item.style.display = ''; hasResults = true; }
+                else { item.style.display = 'none'; }
             });
 
-            // Hide empty categories
             categories.forEach(cat => {
                 const visibleItems = cat.querySelectorAll('.faq-item:not([style*="display: none"])');
                 cat.style.display = visibleItems.length > 0 ? '' : 'none';
