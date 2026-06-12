@@ -9,310 +9,71 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy: #0a1628;
-      --navy-light: #111f38;
-      --navy-muted: #1a2d4f;
-      --gold: #c9a84c;
-      --gold-light: #e0c16c;
-      --gold-dark: #a88a3a;
-      --white: #ffffff;
-      --cream: #f7f5f0;
-      --gray: #8a94a6;
-      --gray-light: #e2e6ed;
-      --success: #22c55e;
+      --navy: #0a1628; --navy-light: #111f38; --navy-muted: #1a2d4f;
+      --gold: #c9a84c; --gold-light: #e0c16c; --gold-dark: #a88a3a;
+      --white: #ffffff; --cream: #f7f5f0; --gray: #8a94a6; --gray-light: #e2e6ed;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--navy); background: var(--white); line-height: 1.6; overflow-x: hidden; }
 
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      color: var(--navy);
-      background: var(--white);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ===== NAVBAR ===== */
-    .navbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      background: rgba(10, 22, 40, 0.95);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(201,168,76,0.15);
-      transition: all 0.3s ease;
-    }
-
-    .nav-container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
-    }
-
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--white);
-      text-decoration: none;
-      letter-spacing: -0.02em;
-    }
-
+    /* NAVBAR */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10,22,40,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(201,168,76,0.15); transition: all 0.3s ease; }
+    .nav-container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: -0.02em; }
     .logo span { color: var(--gold); }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--gray);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--gold);
-      transition: width 0.3s;
-    }
-
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { color: var(--gray); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.3s; }
     .nav-links a:hover { color: var(--white); }
     .nav-links a:hover::after { width: 100%; }
+    .nav-cta { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy) !important; padding: 0.55rem 1.4rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.35); }
+    .mobile-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; padding: 0.25rem; }
 
-    .nav-cta {
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--navy) !important;
-      padding: 0.55rem 1.4rem;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
+    /* MOBILE MENU */
+    .mobile-menu { display: none; flex-direction: column; background: rgba(10,22,40,0.98); border-top: 1px solid rgba(201,168,76,0.15); padding: 1rem 2rem 1.5rem; gap: 0; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--gray); text-decoration: none; font-size: 1rem; font-weight: 500; padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--white); }
+    .mobile-menu .mob-cta { margin-top: 1rem; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy) !important; text-align: center; padding: 0.85rem; border-radius: 10px; font-weight: 700; border-bottom: none; }
 
-    .nav-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(201,168,76,0.35);
-    }
+    /* PAGE HEADER */
+    .page-header { position: relative; min-height: 40vh; display: flex; align-items: center; background: var(--navy); overflow: hidden; padding-top: 72px; }
+    .page-header-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 60%); }
+    .page-header-grid { position: absolute; inset: 0; opacity: 0.04; background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 60px 60px; }
+    .page-header-content { position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: 4rem 2rem; width: 100%; }
+    .page-header-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.25); color: var(--gold-light); padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.8rem; font-weight: 500; margin-bottom: 1.5rem; letter-spacing: 0.02em; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; color: var(--white); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .page-header p { font-size: 1.05rem; color: var(--gray); max-width: 600px; line-height: 1.7; }
 
-    .mobile-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--white);
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    /* ===== PAGE HEADER ===== */
-    .page-header {
-      position: relative;
-      min-height: 40vh;
-      display: flex;
-      align-items: center;
-      background: var(--navy);
-      overflow: hidden;
-      padding-top: 72px;
-    }
-
-    .page-header-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 60%);
-    }
-
-    .page-header-grid {
-      position: absolute;
-      inset: 0;
-      opacity: 0.04;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-
-    .page-header-content {
-      position: relative;
-      z-index: 2;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
-      width: 100%;
-    }
-
-    .page-header-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(201,168,76,0.12);
-      border: 1px solid rgba(201,168,76,0.25);
-      color: var(--gold-light);
-      padding: 0.45rem 1rem;
-      border-radius: 100px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.02em;
-    }
-
-    .page-header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-    }
-
-    .page-header p {
-      font-size: 1.05rem;
-      color: var(--gray);
-      max-width: 600px;
-      line-height: 1.7;
-    }
-
-    /* ===== CONTENT ===== */
+    /* CONTENT */
     .section { padding: 5rem 0; }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    .legal-content {
-      background: var(--white);
-    }
-
-    .legal-content h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin: 2.5rem 0 1rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--gray-light);
-    }
-
-    .legal-content h2:first-child {
-      margin-top: 0;
-      padding-top: 0;
-      border-top: none;
-    }
-
-    .legal-content h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--navy-muted);
-      margin: 1.5rem 0 0.75rem;
-    }
-
-    .legal-content p {
-      color: var(--gray);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-
-    .legal-content ul {
-      margin-left: 1.25rem;
-      margin-bottom: 1.25rem;
-      color: var(--gray);
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-
+    .container { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+    .legal-content h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--navy); margin: 2.5rem 0 1rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-light); }
+    .legal-content h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .legal-content h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy-muted); margin: 1.5rem 0 0.75rem; }
+    .legal-content p { color: var(--gray); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; }
+    .legal-content ul { margin-left: 1.25rem; margin-bottom: 1.25rem; color: var(--gray); font-size: 0.95rem; line-height: 1.7; }
     .legal-content li { margin-bottom: 0.5rem; }
-
     .legal-content a { color: var(--gold-dark); text-decoration: none; font-weight: 500; }
     .legal-content a:hover { text-decoration: underline; }
+    .update-note { background: var(--cream); border: 1px solid var(--gray-light); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 2.5rem; display: flex; align-items: flex-start; gap: 0.75rem; }
+    .update-note-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .update-note p { font-size: 0.9rem; color: var(--navy-muted); margin: 0; }
 
-    .update-note {
-      background: var(--cream);
-      border: 1px solid var(--gray-light);
-      border-radius: 12px;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 2.5rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-    }
-
-    .update-note-icon {
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-
-    .update-note p {
-      font-size: 0.9rem;
-      color: var(--navy-muted);
-      margin: 0;
-    }
-
-    /* ===== FOOTER ===== */
-    .footer {
-      background: var(--navy);
-      padding: 3rem 0;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .footer-content {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .footer-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--white);
-    }
-
+    /* FOOTER */
+    .footer { background: var(--navy); padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-content { max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--white); }
     .footer-brand span { color: var(--gold); }
-
-    .footer-copy {
-      color: var(--gray);
-      font-size: 0.85rem;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .footer-links a {
-      color: var(--gray);
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: color 0.2s;
-    }
-
+    .footer-copy { color: var(--gray); font-size: 0.85rem; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--gray); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
     .footer-links a:hover { color: var(--gold); }
 
-    /* ===== RESPONSIVE ===== */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .mobile-toggle { display: block; }
@@ -326,7 +87,7 @@
   <!-- NAVBAR -->
   <nav class="navbar">
     <div class="nav-container">
-      <a href="index.html" class="logo">Laudos <span>&</span> Contratos</a>
+      <a href="index.html" class="logo">Laudos <span>&amp;</span> Contratos Imobiliários</a>
       <ul class="nav-links">
         <li><a href="index.html#combos">Combos</a></li>
         <li><a href="index.html#modelos">Modelos</a></li>
@@ -335,7 +96,16 @@
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="index.html#combos" class="nav-cta">Comprar Agora</a></li>
       </ul>
-      <button class="mobile-toggle">☰</button>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menu">&#9776;</button>
+    </div>
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html#combos">Combos</a>
+      <a href="index.html#modelos">Modelos</a>
+      <a href="index.html#como-funciona">Como Funciona</a>
+      <a href="index.html#depoimentos">Depoimentos</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#combos" class="mob-cta">Comprar Agora</a>
     </div>
   </nav>
 
@@ -346,7 +116,7 @@
     <div class="page-header-content">
       <div class="page-header-badge">Documentação Legal</div>
       <h1>Termos de Serviço</h1>
-      <p>Condições e regras de uso da plataforma Laudos & Contratos Imobiliários.</p>
+      <p>Condições e regras de uso da plataforma Laudos &amp; Contratos Imobiliários.</p>
     </div>
   </header>
 
@@ -354,17 +124,17 @@
   <section class="section legal-content">
     <div class="container">
       <div class="update-note">
-        <span class="update-note-icon">📅</span>
+        <span class="update-note-icon">&#128197;</span>
         <p><strong>Última atualização:</strong> 10 de junho de 2026. Ao continuar navegando ou utilizando nossos serviços, você concorda com estes termos na íntegra.</p>
       </div>
 
       <h2>1. Aceitação dos Termos</h2>
-      <p>Ao acessar e utilizar o site <strong>Laudos & Contratos Imobiliários</strong>, você concorda em cumprir e ficar vinculado aos presentes Termos de Serviço, a todas as leis e regulamentos aplicáveis. Se não concordar com qualquer parte destes termos, não utilize nossos serviços.</p>
+      <p>Ao acessar e utilizar o site <strong>Laudos &amp; Contratos Imobiliários</strong>, você concorda em cumprir e ficar vinculado aos presentes Termos de Serviço, a todas as leis e regulamentos aplicáveis. Se não concordar com qualquer parte destes termos, não utilize nossos serviços.</p>
 
       <h2>2. Definições</h2>
       <p>Para fins destes Termos:</p>
       <ul>
-        <li><strong>"Plataforma"</strong> refere-se ao site Laudos & Contratos Imobiliários e todos os seus serviços;</li>
+        <li><strong>"Plataforma"</strong> refere-se ao site Laudos &amp; Contratos Imobiliários e todos os seus serviços;</li>
         <li><strong>"Modelos"</strong> são os documentos digitais (laudos, contratos, vistorias) disponibilizados para compra e download;</li>
         <li><strong>"Usuário"</strong> ou <strong>"Cliente"</strong> é qualquer pessoa que acessa ou adquire produtos em nossa plataforma;</li>
         <li><strong>"Responsável"</strong> é Carin Corbas, administrador do site.</li>
@@ -418,9 +188,7 @@
       <p>Reservamo-nos o direito de modificar estes Termos a qualquer momento. As alterações entram em vigor imediatamente após a publicação no site. Recomendamos que revise esta página periodicamente.</p>
 
       <h2>11. Contato</h2>
-      <p>Em caso de dúvidas sobre estes Termos de Serviço, 
-         <a href="contato.html">clique aqui</a>
-      </ul>
+      <p>Em caso de dúvidas sobre estes Termos de Serviço, <a href="contato.html">clique aqui</a> para entrar em contato.</p>
 
       <h2>12. Disposições Gerais</h2>
       <p>Estes Termos são regidos pelas leis da República Federativa do Brasil. Qualquer controvérsia será dirimida no foro da comarca do domicílio do consumidor.</p>
@@ -431,8 +199,8 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-content">
-      <div class="footer-brand">Laudos <span>&</span> Contratos Imobiliários</div>
-      <div class="footer-copy">© 2026 · Processamento seguro via Cakto</div>
+      <div class="footer-brand">Laudos <span>&amp;</span> Contratos Imobiliários</div>
+      <div class="footer-copy">&copy; 2026 · Processamento seguro via Cakto</div>
       <div class="footer-links">
         <a href="faq.html">Perguntas Frequentes</a>
         <a href="privacidade.html">Política de Privacidade</a>
@@ -440,6 +208,23 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      mobileToggle.innerHTML = mobileMenu.classList.contains('open') ? '&#10005;' : '&#9776;';
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        mobileToggle.innerHTML = '&#9776;';
+      });
+    });
+  </script>
 
 </body>
 </html>
