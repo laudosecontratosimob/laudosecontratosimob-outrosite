@@ -11,33 +11,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --navy: #0a1628;
-            --navy-light: #132038;
-            --navy-lighter: #1a2d4a;
-            --gold: #c9a84c;
-            --gold-light: #dcc47a;
-            --gold-dark: #a68b3c;
-            --cream: #f5f0e6;
-            --white: #ffffff;
-            --gray: #8899aa;
-            --gray-light: #c5cdd5;
+            --navy: #0a1628; --navy-light: #132038; --navy-lighter: #1a2d4a;
+            --gold: #c9a84c; --gold-light: #dcc47a; --gold-dark: #a68b3c;
+            --cream: #f5f0e6; --white: #ffffff; --gray: #8899aa; --gray-light: #c5cdd5;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--navy); line-height: 1.7; }
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
 
         /* NAVBAR */
-        .navbar {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            background: rgba(10, 22, 40, 0.92); backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(201, 168, 76, 0.15);
-        }
-        .nav-container {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 0 6%; height: 72px;
-        }
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10,22,40,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.15); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 0 6%; height: 72px; }
         .logo { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: -0.02em; }
         .logo span { color: var(--gold); }
         .nav-links { display: flex; gap: 2.5rem; list-style: none; }
@@ -48,24 +33,17 @@
         .nav-cta { background: var(--gold); color: var(--navy) !important; padding: 0.55rem 1.4rem; border-radius: 6px; font-weight: 600 !important; font-size: 0.85rem !important; }
         .nav-cta::after { display: none !important; }
         .nav-cta:hover { background: var(--gold-light); }
-
-        /* MOBILE TOGGLE */
         .mobile-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; padding: 0.25rem; }
 
         /* MOBILE MENU */
-        .mobile-menu {
-            display: none; flex-direction: column;
-            background: rgba(10, 22, 40, 0.98);
-            border-top: 1px solid rgba(201,168,76,0.15);
-            padding: 1rem 6% 1.5rem; gap: 0;
-        }
+        .mobile-menu { display: none; flex-direction: column; background: rgba(10,22,40,0.98); border-top: 1px solid rgba(201,168,76,0.15); padding: 1rem 6% 1.5rem; gap: 0; }
         .mobile-menu.open { display: flex; }
         .mobile-menu a { color: var(--gray-light); text-decoration: none; font-size: 1rem; font-weight: 500; padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
         .mobile-menu a:last-child { border-bottom: none; }
         .mobile-menu a:hover { color: var(--gold); }
         .mobile-menu .mob-cta { margin-top: 1rem; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy) !important; text-align: center; padding: 0.85rem; border-radius: 10px; font-weight: 700; border-bottom: none; }
 
-        /* HERO FAQ */
+        /* HERO */
         .faq-hero { background: var(--navy); padding: 10rem 6% 4rem; text-align: center; }
         .faq-hero h1 { font-size: 2.8rem; color: var(--white); margin-bottom: 0.8rem; }
         .faq-hero h1 span { color: var(--gold); }
@@ -77,7 +55,7 @@
         .search-box input:focus { border-color: var(--gold); }
         .search-box i { position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%); color: var(--gray); font-size: 1rem; }
 
-        /* FAQ CONTENT */
+        /* FAQ */
         .faq-section { padding: 0 6% 5rem; max-width: 850px; margin: 0 auto; }
         .faq-category { margin-bottom: 2.5rem; }
         .faq-category-title { font-size: 1.15rem; color: var(--navy); font-weight: 600; font-family: 'Inter', sans-serif; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; }
@@ -88,18 +66,18 @@
         .faq-question:hover { color: var(--gold-dark); }
         .faq-question i { color: var(--gold); font-size: 0.85rem; transition: transform 0.3s; flex-shrink: 0; margin-left: 1rem; }
         .faq-item.open .faq-question i { transform: rotate(180deg); }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
-        .faq-item.open .faq-answer { max-height: 500px; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+        .faq-item.open .faq-answer { max-height: 600px; }
         .faq-answer-inner { padding: 0 1.4rem 1.2rem; color: var(--navy-light); font-size: 0.9rem; line-height: 1.7; }
         .faq-answer-inner a { color: var(--gold-dark); text-decoration: none; font-weight: 500; }
         .faq-answer-inner a:hover { text-decoration: underline; }
         .faq-answer-inner ul { margin: 0.6rem 0 0.6rem 1.2rem; }
         .faq-answer-inner li { margin-bottom: 0.3rem; }
-
-        /* NOT FOUND */
         .faq-not-found { text-align: center; padding: 3rem 1rem; color: var(--gray); display: none; }
         .faq-not-found i { font-size: 2.5rem; color: var(--gray-light); margin-bottom: 1rem; }
         .faq-not-found p { font-size: 0.95rem; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--gray); text-decoration: none; font-size: 0.88rem; margin-bottom: 2rem; transition: color 0.3s; }
+        .back-link:hover { color: var(--gold); }
 
         /* CONTACT CTA */
         .contact-cta { background: var(--navy); padding: 3.5rem 6%; text-align: center; }
@@ -117,10 +95,6 @@
         .footer-links { display: flex; gap: 1.5rem; }
         .footer-links a { color: var(--gray); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
         .footer-links a:hover { color: var(--gold); }
-
-        /* BACK LINK */
-        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--gray); text-decoration: none; font-size: 0.88rem; margin-bottom: 2rem; transition: color 0.3s; }
-        .back-link:hover { color: var(--gold); }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
@@ -161,7 +135,7 @@
     <!-- HERO -->
     <section class="faq-hero">
         <h1>Dúvidas <span>Frequentes</span></h1>
-        <p>Tudo o que você precisa saber antes de comprar seus modelos jurídicos.</p>
+        <p>Tudo o que você precisa saber antes de comprar.</p>
     </section>
 
     <!-- SEARCH -->
@@ -174,254 +148,489 @@
     <section class="faq-section">
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Voltar para a página inicial</a>
 
-        <!-- Pagamento -->
+        <!-- 1. Compra e Pagamento -->
         <div class="faq-category">
-            <div class="faq-category-title"><i class="fas fa-credit-card"></i> Pagamento</div>
+            <div class="faq-category-title"><i class="fas fa-credit-card"></i> Compra e Pagamento</div>
+
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFAQ(this)">
-                    Quais são as formas de pagamento aceitas?
+                    Como funciona a compra?
                     <i class="fas fa-chevron-down"></i>
                 </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Aceitamos pagamento via <strong>Pix</strong>, <strong>Cartão de Crédito</strong>, <strong>Google Pay</strong>, <strong>Apple Pay</strong> e <strong>Pic Pay</strong>.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Após selecionar o produto desejado e concluir o pagamento, o acesso será liberado conforme as instruções fornecidas pela plataforma. Você receberá as orientações necessárias para acessar os materiais adquiridos.
+                </div></div>
             </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Quais formas de pagamento são aceitas?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    As formas de pagamento disponíveis são exibidas no checkout no momento da compra e podem incluir Pix, cartão de crédito e outros meios disponibilizados pela plataforma de pagamento.
+                </div></div>
+            </div>
+
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFAQ(this)">
                     O pagamento é seguro?
                     <i class="fas fa-chevron-down"></i>
                 </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Sim, totalmente seguro. Utilizamos a plataforma Cakto, que oferece criptografia SSL de 256 bits para proteger seus dados. Não armazenamos dados de cartão de crédito em nossos servidores.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Sim. Todas as transações são processadas por plataformas especializadas em pagamentos eletrônicos, utilizando tecnologias de segurança adequadas para proteção dos dados da transação.
+                </div></div>
             </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    É emitida nota fiscal?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Quando aplicável e exigido pela legislação, a nota fiscal poderá ser emitida mediante os dados fornecidos pelo comprador.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Posso comprar como pessoa física ou jurídica?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Sim. Os produtos podem ser adquiridos tanto por pessoas físicas quanto por pessoas jurídicas.
+                </div></div>
+            </div>
+
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFAQ(this)">
                     Posso parcelar a compra?
                     <i class="fas fa-chevron-down"></i>
                 </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Sim! Pagamentos com cartão de crédito podem ser parcelados em até 12 vezes. 
-                    </div>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFAQ(this)">
-                    Recebo nota fiscal?
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Sim, a nota fiscal é emitida automaticamente pela plataforma Cakto e enviada para o e-mail cadastrado no momento da compra, em até 48 horas úteis.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    As opções de parcelamento, quando disponíveis, serão exibidas diretamente no checkout durante o processo de compra.
+                </div></div>
             </div>
         </div>
 
-        <!-- Entrega -->
+        <!-- 2. Entrega e Acesso -->
         <div class="faq-category">
             <div class="faq-category-title"><i class="fas fa-paper-plane"></i> Entrega e Acesso</div>
+
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFAQ(this)">
                     Como recebo os modelos após a compra?
                     <i class="fas fa-chevron-down"></i>
                 </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Após a confirmação do pagamento, o acesso ao produto adquirido é disponibilizado digitalmente por meio da área de membros e/ou conforme as instruções enviadas ao e-mail cadastrado.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Após a confirmação do pagamento, o acesso ao produto adquirido é disponibilizado digitalmente por meio da área de membros e/ou conforme as instruções enviadas ao e-mail cadastrado.
+                </div></div>
             </div>
+
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFAQ(this)">
                     Demora quanto tempo para receber?
                     <i class="fas fa-chevron-down"></i>
                 </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        A liberação normalmente ocorre logo após a confirmação do pagamento, podendo variar conforme os procedimentos de análise e aprovação da plataforma de pagamento.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    A liberação normalmente ocorre logo após a confirmação do pagamento, podendo variar conforme os procedimentos de análise e aprovação da plataforma de pagamento.
+                </div></div>
             </div>
+
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFAQ(this)">
                     Posso baixar os modelos mais de uma vez?
                     <i class="fas fa-chevron-down"></i>
                 </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Os materiais permanecem disponíveis na área de membros enquanto mantidos pela plataforma. Recomenda-se que o comprador realize o download e mantenha cópia de segurança dos arquivos adquiridos.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Os materiais permanecem disponíveis na área de membros enquanto mantidos pela plataforma. Recomenda-se que o comprador realize o download e mantenha cópia de segurança dos arquivos adquiridos.
+                </div></div>
             </div>
+
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFAQ(this)">
                     E se eu não receber o e-mail?
                     <i class="fas fa-chevron-down"></i>
                 </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Verifique sua caixa de entrada, spam, lixo eletrônico e promoções. Caso não localize a mensagem, entre em contato informando o e-mail utilizado na compra.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Verifique sua caixa de entrada, spam, lixo eletrônico e promoções. Caso não localize a mensagem, entre em contato informando o e-mail utilizado na compra.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Preciso instalar algum programa para utilizar os arquivos?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Os modelos são disponibilizados em formatos compatíveis com programas amplamente utilizados no mercado, como Microsoft Word e Microsoft Excel.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Os arquivos funcionam no Microsoft Word e Excel?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Sim. Os materiais são desenvolvidos para utilização nesses formatos, observadas as versões compatíveis dos respectivos programas.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Posso acessar os materiais pelo celular?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    O acesso à área de membros pode ser realizado por dispositivos móveis compatíveis. Entretanto, para edição completa dos arquivos, recomenda-se a utilização de computador.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Por quanto tempo os materiais permanecem disponíveis na área de membros?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Os materiais permanecem disponíveis enquanto mantidos pela plataforma. Recomenda-se que o comprador realize o download dos arquivos e mantenha cópias de segurança.
+                </div></div>
             </div>
         </div>
 
-        <!-- Modelos -->
+        <!-- 3. Sobre os Modelos -->
         <div class="faq-category">
             <div class="faq-category-title"><i class="fas fa-file-alt"></i> Sobre os Modelos</div>
+
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFAQ(this)">
-                    Em qual formato vem os modelos?
+                    Os arquivos são editáveis?
                     <i class="fas fa-chevron-down"></i>
                 </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Todos os modelos são entregues em formato <strong>.docx</strong> (Microsoft Word), prontos para serem editados. Você pode abrir no Word, Google Docs, LibreOffice ou qualquer outro editor compatível.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Sim. Os modelos são fornecidos em formatos editáveis para que possam ser adaptados às necessidades específicas de cada trabalho.
+                </div></div>
             </div>
+
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFAQ(this)">
-                    Preciso saber usar Word para editar?
+                    Posso personalizar os modelos?
                     <i class="fas fa-chevron-down"></i>
                 </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Não. Os modelos são extremamente simples de editar — basta substituir os campos indicados entre colchetes (ex: [NOME DO CLIENTE]) pelos dados reais do caso.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Sim. Os documentos podem ser personalizados, adaptados e complementados conforme as necessidades do usuário.
+                </div></div>
             </div>
+
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFAQ(this)">
                     Os modelos estão atualizados com a legislação vigente?
                     <i class="fas fa-chevron-down"></i>
                 </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Os modelos foram elaborados com base na legislação, normas técnicas e práticas profissionais vigentes à época de sua elaboração. Recomenda-se que o usuário revise e adapte o conteúdo às exigências aplicáveis ao caso concreto.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Os modelos foram elaborados com base na legislação, normas técnicas e práticas profissionais vigentes à época de sua elaboração. Recomenda-se que o usuário revise e adapte o conteúdo às exigências aplicáveis ao caso concreto.
+                </div></div>
             </div>
+
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFAQ(this)">
-                    Posso usar os modelos para múltiplos clientes?
+                    Os modelos possuem marca d'água?
                     <i class="fas fa-chevron-down"></i>
                 </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Sim. Os modelos podem ser utilizados e reutilizados em sua atividade profissional para elaboração de documentos destinados aos seus clientes.
-                          A licença concedida é individual, pessoal e intransferível. Não é permitida a revenda, redistribuição, compartilhamento ou disponibilização 
-                        dos arquivos originais a terceiros.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Os modelos são fornecidos em formato profissional para utilização pelo adquirente. A plataforma poderá utilizar mecanismos de identificação de licença e proteção de propriedade intelectual quando necessário.
+                </div></div>
             </div>
+
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFAQ(this)">
-                    Os modelos têm qualquer marca d'água?
+                    Posso utilizar os modelos para meus clientes?
                     <i class="fas fa-chevron-down"></i>
                 </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Os modelos são fornecidos em formato profissional para utilização pelo adquirente. 
-                        A plataforma poderá utilizar mecanismos de identificação de licença e proteção de propriedade intelectual quando necessário.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Sim. Os modelos podem ser utilizados e reutilizados em sua atividade profissional para elaboração de documentos destinados aos seus clientes.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Os modelos substituem assessoria jurídica ou pericial?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Não. Os materiais fornecem estrutura técnica de apoio e devem ser adaptados às características específicas de cada situação. A responsabilidade profissional permanece integralmente com o usuário.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Para quais profissionais os modelos foram desenvolvidos?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Os materiais foram desenvolvidos para profissionais que atuam ou possuem interesse nas áreas imobiliária, pericial, avaliativa, contratual e documental.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Os modelos seguem normas técnicas da ABNT?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Quando aplicável, os modelos são estruturados com base em referências técnicas utilizadas no mercado profissional, incluindo normas e boas práticas relacionadas à atividade.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Os modelos podem ser adaptados para diferentes tipos de imóveis?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Sim. Os documentos foram elaborados para permitir adaptações conforme as características do imóvel, da finalidade do trabalho e das necessidades do usuário.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Os modelos incluem exemplos de preenchimento?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Alguns materiais podem conter exemplos, orientações ou estruturas de referência. O conteúdo específico de cada produto está descrito na respectiva página de venda.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Preciso ter experiência para utilizar os modelos?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Não necessariamente. Entretanto, conhecimentos básicos sobre a atividade profissional relacionada ao documento poderão facilitar sua correta utilização e adaptação.
+                </div></div>
             </div>
         </div>
 
-        <!-- Garantia -->
+        <!-- 4. Licença de Uso -->
         <div class="faq-category">
-            <div class="faq-category-title"><i class="fas fa-shield-alt"></i> Garantia e Suporte</div>
+            <div class="faq-category-title"><i class="fas fa-file-contract"></i> Licença de Uso e Direitos Autorais</div>
+
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFAQ(this)">
-                    Tem garantia de satisfação?
+                    Posso compartilhar os arquivos com colegas ou membros da minha equipe?
                     <i class="fas fa-chevron-down"></i>
                 </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Os produtos digitais estão sujeitos ao prazo legal de arrependimento previsto na legislação aplicável.
-Solicitações de reembolso deverão ser realizadas dentro do prazo legal por meio dos canais de atendimento disponibilizados pela plataforma.
-Situações envolvendo fraude, má-fé, compartilhamento indevido dos materiais, violação dos Termos de Uso ou utilização abusiva da política de reembolso poderão ser analisadas individualmente.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Não. A licença concedida é individual, pessoal e intransferível. Cada profissional ou empresa que desejar utilizar os materiais deverá adquirir sua própria licença.
+                </div></div>
             </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Posso revender os modelos?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Não. Os modelos são protegidos por direitos autorais e destinam-se exclusivamente à utilização profissional pelo adquirente.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Posso redistribuir os arquivos gratuitamente?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Não. É proibido compartilhar, distribuir, disponibilizar ou transferir os arquivos originais a terceiros, mesmo sem finalidade comercial.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Posso publicar os modelos em grupos, redes sociais ou serviços de armazenamento?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Não. A publicação ou disponibilização dos arquivos originais em qualquer ambiente público ou privado acessível a terceiros é proibida.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Posso utilizar os modelos dentro da minha empresa?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Sim, desde que a utilização ocorra exclusivamente pelo titular da licença adquirida. Caso múltiplos profissionais utilizem os materiais, recomenda-se a aquisição das licenças correspondentes.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    O que acontece em caso de compartilhamento não autorizado?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    A violação da licença de uso poderá resultar na revogação do acesso aos materiais, cancelamento da licença concedida e adoção das medidas administrativas e legais cabíveis para proteção dos direitos autorais e da propriedade intelectual.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Os modelos possuem proteção de direitos autorais?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Sim. Todo o conteúdo disponibilizado é protegido pela legislação brasileira de direitos autorais e propriedade intelectual.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    A licença é individual ou pode ser utilizada por várias pessoas?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    A licença é individual, pessoal e intransferível, salvo disposição expressa em contrário.
+                </div></div>
+            </div>
+        </div>
+
+        <!-- 5. Garantia e Reembolso -->
+        <div class="faq-category">
+            <div class="faq-category-title"><i class="fas fa-shield-alt"></i> Garantia e Reembolso</div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Como funciona a garantia?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Os produtos digitais estão sujeitos ao prazo legal de arrependimento previsto na legislação aplicável.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Como solicito um reembolso?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    A solicitação deverá ser realizada pelos canais de atendimento disponibilizados pela plataforma dentro do prazo legal aplicável.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Em quais situações o reembolso poderá ser analisado individualmente?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Situações envolvendo fraude, má-fé, compartilhamento indevido dos materiais, violação dos Termos de Uso ou utilização abusiva da política de reembolso poderão ser analisadas individualmente.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    O acesso permanece ativo após um reembolso aprovado?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Não. Em caso de reembolso aprovado, a licença concedida é revogada e o acesso aos materiais poderá ser encerrado.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    O que acontece com minha licença após o reembolso?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    A licença de uso é automaticamente revogada, não sendo mais permitida a utilização dos materiais obtidos por meio da compra reembolsada.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Posso solicitar reembolso após baixar os arquivos?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    As solicitações serão analisadas conforme a legislação aplicável e os Termos de Uso da plataforma.
+                </div></div>
+            </div>
+        </div>
+
+        <!-- 6. Suporte -->
+        <div class="faq-category">
+            <div class="faq-category-title"><i class="fas fa-headset"></i> Suporte</div>
+
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFAQ(this)">
                     Como funciona o suporte?
                     <i class="fas fa-chevron-down"></i>
                 </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        O suporte está disponível para questões relacionadas ao acesso aos materiais, downloads e utilização da plataforma.
-                        O suporte não inclui consultoria jurídica, pericial, análise de processos ou orientação sobre casos específicos.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    O suporte está disponível para questões relacionadas ao acesso aos materiais, downloads e utilização da plataforma.
+                </div></div>
             </div>
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFAQ(this)">
-                    Recebo atualizações gratuitas?
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Eventuais atualizações, melhorias ou novas versões poderão ser disponibilizadas a critério exclusivo da plataforma, sem obrigação de atualização contínua ou vitalícia.
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Combos -->
-        <div class="faq-category">
-            <div class="faq-category-title"><i class="fas fa-box-open"></i> Combos e Preços</div>
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFAQ(this)">
-                    O que vem no Combo Completo?
+                    Quais assuntos o suporte atende?
                     <i class="fas fa-chevron-down"></i>
                 </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        O Combo Completo reúne <strong>todos os 23 modelos</strong> disponíveis no site. É a melhor opção de custo-benefício, com desconto significativo em relação à compra individual.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    O suporte atende dúvidas relacionadas à compra, acesso, download e utilização da plataforma.
+                </div></div>
             </div>
+
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFAQ(this)">
-                    Posso comprar modelos avulsos depois?
+                    O suporte presta consultoria jurídica?
                     <i class="fas fa-chevron-down"></i>
                 </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Sim! Você pode comprar modelos individuais a qualquer momento. No entanto, se planeja adquirir vários modelos, o Combo Completo sai muito mais vantajoso financeiramente.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Não. O suporte não presta consultoria jurídica, pareceres legais ou orientação profissional especializada.
+                </div></div>
             </div>
+
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFAQ(this)">
-                    Os preços podem mudar?
+                    O suporte auxilia no preenchimento dos documentos?
                     <i class="fas fa-chevron-down"></i>
                 </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        Os preços podem ser ajustados periodicamente. Quem já comprou não sofre reajuste — o valor pago é válido para sempre.
-                    </div>
-                </div>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Não. A elaboração, adaptação, preenchimento e utilização dos documentos são de responsabilidade do usuário.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Como entro em contato com o suporte?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer"><div class="faq-answer-inner">
+                    Os canais de atendimento disponíveis estarão informados na plataforma e nas comunicações oficiais relacionadas à compra. Você também pode acessar nossa <a href="contato.html">página de contato</a>.
+                </div></div>
             </div>
         </div>
 
         <!-- Not found -->
         <div class="faq-not-found" id="noResults">
             <i class="fas fa-search"></i>
-            <p>Nenhuma dúvida encontrada com esse termo. <br>Tente outra palavra-chave ou <a href="mailto:contato@juridicomodelos.com">entre em contato</a>.</p>
+            <p>Nenhuma dúvida encontrada com esse termo. <br>Tente outra palavra-chave ou <a href="contato.html">entre em contato</a>.</p>
         </div>
     </section>
 
-
+    <!-- CONTACT CTA -->
+    <section class="contact-cta">
+        <h3>Ainda tem dúvidas?</h3>
+        <p>Nosso time responde em até 24 horas. Estamos aqui para ajudar.</p>
+        <a href="contato.html" class="btn-primary"><i class="fas fa-envelope"></i> Falar Conosco</a>
+    </section>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -437,15 +646,13 @@ Situações envolvendo fraude, má-fé, compartilhamento indevido dos materiais,
     </footer>
 
     <script>
-        // Mobile menu toggle
+        // Mobile menu
         const mobileToggle = document.getElementById('mobileToggle');
         const mobileMenu = document.getElementById('mobileMenu');
-
         mobileToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('open');
             mobileToggle.innerHTML = mobileMenu.classList.contains('open') ? '&#10005;' : '&#9776;';
         });
-
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('open');
@@ -467,18 +674,15 @@ Situações envolvendo fraude, má-fé, compartilhamento indevido dos materiais,
             const items = document.querySelectorAll('.faq-item');
             const categories = document.querySelectorAll('.faq-category');
             let hasResults = false;
-
             items.forEach(item => {
                 const text = item.textContent.toLowerCase();
                 if (text.includes(query)) { item.style.display = ''; hasResults = true; }
                 else { item.style.display = 'none'; }
             });
-
             categories.forEach(cat => {
                 const visibleItems = cat.querySelectorAll('.faq-item:not([style*="display: none"])');
                 cat.style.display = visibleItems.length > 0 ? '' : 'none';
             });
-
             document.getElementById('noResults').style.display = (query && !hasResults) ? 'block' : 'none';
         }
     </script>
