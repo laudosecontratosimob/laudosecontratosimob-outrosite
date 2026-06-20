@@ -180,7 +180,7 @@
           <h3>Envie uma mensagem</h3>
           <p>Preencha os campos abaixo e entraremos em contato em breve.</p>
 
-          <form action="https://formspree.io/f/xzdqjeqd" method="POST">
+          <form id="contactForm" action="https://formspree.io/f/xzdqjeqd" method="POST">
             <div class="form-row">
               <div class="form-group">
                 <label for="nome">Nome <span>*</span></label>
@@ -252,6 +252,35 @@
       });
     });
   </script>
+
+<script>
+const contactForm = document.getElementById('contactForm');
+
+contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(contactForm);
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      window.location.href = 'obrigado.html';
+    } else {
+      alert('Ocorreu um erro ao enviar sua mensagem. Tente novamente.');
+    }
+  } catch (error) {
+    alert('Não foi possível enviar a mensagem. Verifique sua conexão.');
+  }
+});
+</script>
+  
 
 </body>
 </html>
